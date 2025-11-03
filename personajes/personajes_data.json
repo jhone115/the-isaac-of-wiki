@@ -270,5 +270,312 @@
     "objetos": "collectibles_726_hemoptysis",
     "descripcioncorta": "La versión corrompida de brimstone.",
     "descripcionlarga": "Tainted Azazel es el octavo personaje tainted del juego, este personaje tiene un ataque similar a Brimstone<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_118_brimstone.png' width='20' alt='brimstone'>, pero con las características opuestas a Azazel<img src='personajesimagenes/azazel.png' width='20' alt='azazel'>, ya que tiene un ataque de mucho rango pero poco grosor.<br> A diferencia de su versión normal, no puede volar pero tiene una segunda habilidad que es el poder “estornudar”, con el estornudo podrás hacer una ataque de corto alcance y marcarás a los enemigos con un símbolo, los enemigos marcados al dispararle con el ataque base tendrán un crítico haciéndoles más daño, si derrotas a un enemigo marcado este explotara y “contagiara” a los de su alrededor. Empieza con la carta de The Fool <br>*El personaje no estornuda, lo que hace es escupir sangre por un trastorno pulmonar llamado hemoptisis, de ahí que uno de sus items desbloqueables sea Hemoptysis<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_726_hemoptysis.png' width='20' alt='hemptysis'>, derrotando a Delirium<img src='/the-isaac-of-wiki/jefes/jefesimg/delirium.png' width='25' alt='delirios'>*"
+},
+  "lazarus": {
+    "nombre": "lazaro",
+    "imagen": "personajesimagenes/lazarus.png",
+    "vida": [
+      {"tipo": "rojo", "cantidad": 3}
+    ],
+    "daño": 3.50,
+    "lagrimas": 2.73,
+    "vellagrimas": 1.00,
+    "rango": 6.00,
+    "velocidad": 1.00,
+    "suerte": -1.00,
+    "descripcioncorta": "el muerto renacido",
+    "consumibles": [{"tipo": "pill", "cantidad": 1}],
+    "objetos": "collectibles_214_anemic",
+    "descripcionlarga": "Lazarus es el noveno personaje introducido en el juego, para desbloquearlo tienes que tener 4 corazones de alma<img src='/the-isaac-of-wiki/objetos/consumibles/corazon azul.png' width='20' alt='azul'>, este personaje empieza con una pastilla aleatoria y una vida extra que si mueres, revivirás con estadísticas mejoradas y el item Anemic<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_214_anemic.png' width='20' alt='anemia'> que te permite sangrar para hacer daño a los enemigos pero perderás un contenedor de vida roja, al ir al siguiente piso volverás a tener una vida extra y se te abra quedado un porcentaje del daño, pero perderás el resto de estadísticas y el item Anemic. Si mueres teniendo una vida extra pero con solo un contenedor de corazón rojo, revivirás con un contenedor de vida rojo. También puedes desbloquear que el item Anemic<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_214_anemic.png' width='20' alt='anemia'> este siempre con Lazarus sin importar que haya revivido completando el challenge Backasswards."
+  },
+  "tainted_lazarus": {
+    "nombre": "Tainted lazaro",
+    "imagen": "personajesimagenes/t lazarus.png",
+    "vida": [
+      {"tipo": "rojo", "cantidad": 3},
+      {"tipo": "azul", "cantidad": 2}
+    ],
+    "daño": 3.50,
+    "lagrimas": 2.73,
+    "vellagrimas": 1.00,
+    "rango": 4.50,
+    "velocidad": 1.00,
+    "suerte": 0,
+    "consumibles": [{"tipo": "bomba", "cantidad": 1}],
+    "objetos": "collectibles_711_flip",
+    "descripcioncorta": "La versión corrompida de lazaro.",
+    "descripcionlarga": "Tainted Lazarus es el noveno personaje tainted del juego, para poder entender a este personaje me gusta compararlo con Jacob y Esau<img src='personajesimagenes/jacob.png' width='20' alt='jacobo'><img src='personajesimagenes/esau.png' width='20' alt='esau'> pero fusionados en uno, empieza con el ítem Flip<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_711_flip.png' width='20' alt='volteo'>, este permite cambiar a Tainted Lazarus a Tainted Dead Lazarus, cada uno de ellos tiene sus estadísticas y items propios, el ítem te permite tener dos objetos de un mismo pedestal (mientras no haya aparecido como por ejemplo en la sala del jefe<img src='/the-isaac-of-wiki/objetos/pools/boss pool.png' width='20' alt='boss Room'> o con un beggar/mendigo) podiendo coger un ítem con una versión, utilizar el Flip, cambiar a la otra versión y coger el ítem de debajo.<br>En cada sala que hayas limpiado (derrotar a todos los enemigos que habían) se te cambiará automáticamente a la versión que no estabas utilizando, forzándote a jugar con las dos versiones.<br>Como curiosidad, si estas en el piso de Downpour<img src='/the-isaac-of-wiki/pisos/pisosimagenes/downpour.jpeg' height='20' alt='Greed Mode'> y te colocas encima de un charco en el reflejo se vera la otra parte del personaje que no utilizas (si estas con Tain Lazarus, en el reflejo se vera a Tain Dead Lazarus y a la inversa)."
+  },
+  "eden": {
+    "nombre": "eden",
+    "imagen": "personajesimagenes/eden.png",
+    "vida": [
+      {"tipo": "vacio", "cantidad": 0}
+    ],
+    "daño": 0,
+    "lagrimas": 0,
+    "vellagrimas": 0,
+    "rango": 0,
+    "velocidad": 0,
+    "suerte": 0,
+    "descripcioncorta": "???????.",
+    "consumibles": [{"tipo": "", "cantidad": 0}],
+    "objetos": "?",
+    "descripcionlarga": "Eden es el décimo personaje introducido en el juego, para desbloquearlo tienes que derrotar por primera vez a Mom’s Heart, este personaje empieza con estadísticas aleatorias en cada partida, también tiene un item activo y pasivo aleatorio, tiene la posibilidad de que también te de un trinket, consumible o pick up en principios de partida. Este personaje se juega con Eden Tokens que se consiguen derrotando a Mom’s Heart o It lives una vez, por cada vez que lo mates te darán un token."
+  },
+  "tainted_eden": {
+    "nombre": "Tainted eden",
+    "imagen": "personajesimagenes/t edeb.png",
+    "vida": [
+      {"tipo": "vacio", "cantidad": 0}
+    ],
+    "daño": 0,
+    "lagrimas": 0,
+    "vellagrimas": 0,
+    "rango": 0,
+    "velocidad": 0,
+    "suerte": 0,
+    "descripcioncorta": "la version corrupta de eden.",
+    "consumibles": [{"tipo": "", "cantidad": 0}],
+    "objetos": "?",
+    "descripcionlarga": "Tainted Eden es el décimo personaje tainted del juego, empieza como Eden normal, estadísticas aleatorias, un objeto activo aleatorio y también uno pasivo y con la posibilidad de tener un trinket o pick ups, la única pero gran diferencia es que al recibir daño el personaje cambiará todas sus objetos que tenía como si utilizara el item D4."
+  },
+  "lost": {
+    "nombre": "lost",
+    "imagen": "personajesimagenes/lost.png",
+    "vida": [
+      {"tipo": "vacio", "cantidad":0}
+    ],
+    "daño": 3.50,
+    "lagrimas": 2.73,
+    "vellagrimas": 1.00,
+    "rango": 6.50,
+    "velocidad": 1.00,
+    "suerte": 0.00,
+    "descripcioncorta": "el perdido abandonado olvidado.",
+    "consumibles": [{"tipo": "", "cantidad": 0}],
+    "objetos": "collectibles_609_floriansd6",
+    "descripcionlarga": "The Lost es el undécimo personaje introducido en el juego y es el segundo personaje secreto del juego, para desbloquearlo tienes que tener el trinket Missing Poster<img src='/the-isaac-of-wiki/objetos/trinkets/trinket_022_missingposter.png' width='20' alt='missing poster'> y morir en una sala del sacrificio / sala de pinchos con cualquier personaje.<br>Tiene la habilidad de volar y tiene lágrimas espectrales pero no tiene vida, es decir, que si recibe un golpe estará muerto. Tiene la mecánica de ir a pactos de demonio y poder coger el item que quiera sin ninguna consecuencia pero solo podrá elegir un item de la sala.<br>Empieza con una moneda y el item Eternal D6<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_609_floriansd6.png' width='20' alt='d6 eterno'>, que funciona igual que el D6 pero con dos cargas con el riesgo de al usarlo tener un 25% de posibilidades de que el item desaparezca. También cuando tengas 879 monedas en la maquina de donaciones del modo Greed, The Lost empezara con la Holy Mantle<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_313_holymantle.png' width='20' alt='holy mantel'>, el cual te permitirá tener un golpe mas en cada sala."
+  },
+  "tainted_lost": {
+    "nombre": "Tainted lost",
+    "imagen": "personajesimagenes/t lost.png",
+    "vida": [
+      {"tipo": "vacio", "cantidad": 0}
+    ],
+    "daño": 4.55,
+    "lagrimas": 2.73,
+    "vellagrimas": 1.00,
+    "rango": 6.50,
+    "velocidad": 1.00,
+    "suerte": 0.00,
+    "consumibles": [{"tipo": "moneda", "cantidad": 1}],
+    "objetos": "",
+    "descripcioncorta": "La versión corrompida de lost.",
+    "descripcionlarga": "Tainted The Lost es el undécimo personaje tainted del juego, tiene las mismas habilidades que The Lost normal (vuelo, lágrimas espectrales y pacto de demonio gratis pero solo pudiendo coger un item). Le salen mejores items ya que los ítems que son inútiles para él no salen (objetos que te den vida, vuelo, lágrimas espectrales).<br>No te pueden salir objetos que te proporcionan mucha ventaja como Holy Mantle<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_313_holymantle.png' width='20' alt='holy mantel'> o Dead Cat<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_81_deadcat.png' width='20' alt='7 vidas'> a no ser que los fuerces con Spindown Dice<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_723_spindowndice.png' width='20' alt='spin down'> o Death Certificate<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_628_deathcertificate.png' width='20' alt='death certificado'>.<br>Como el personaje base si le dan un golpe muere, empieza con una moneda y carta Holy Card que te permite tener un golpe mas."
+  },
+  "lilith": {
+    "nombre": "lilith",
+    "imagen": "personajesimagenes/lilith.png",
+    "vida": [
+      {"tipo": "rojo", "cantidad": 1},{"tipo": "negro", "cantidad": 2}
+    ],
+    "daño": 3.50,
+    "lagrimas": 2.73,
+    "vellagrimas": 1.00,
+    "rango": 6.50,
+    "velocidad": 1.00,
+    "suerte": 0.00,
+    "descripcioncorta": "la embarazada sin feto.",
+    "consumibles": [{"tipo": "", "cantidad": 0}],
+    "objetos": "collectibles_360_incubus",
+    "descripcionlarga": "Lilith es el duodécimo personaje introducido en el juego, para desbloquearlo tienes que pasarte el modo Greed con el personaje Azazel<img src='personajesimagenes/azazel.png' width='20' alt='azazel'>. El personaje no puede disparar por que tiene los ojos vendados pero tiene el item Incubus<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_360_incubus.png' width='20' alt='incubo'> que será su fuente de daño, también tiene el item Box of friends<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_412_cambionconception.png' width='20' alt='amigos'> que le duplica todos los acompañantes que tenga y el item Cambion Conception<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_357_pandorasbox.png' width='20' alt='conecion'> que al recibir daño tiene una posibilidad de crear un acompañante que te seguirá hasta el final de la partida."
+  },
+  "tainted_lilith": {
+    "nombre": "Tainted lilith",
+    "imagen": "personajesimagenes/t lilith.png",
+   "vida": [
+      {"tipo": "rojo", "cantidad": 1},{"tipo": "negro", "cantidad": 2}
+    ],
+    "daño": 3.50,
+    "lagrimas": 2.73,
+    "vellagrimas": 1.00,
+    "rango": 6.50,
+    "velocidad": 0.85,
+    "suerte": 0.00,
+    "consumibles": [{"tipo": "", "cantidad": 0}],
+    "objetos": "",
+    "descripcioncorta": "La versión corrompida de lilith.",
+    "descripcionlarga": "Tainted Lilith es el duodécimo personaje tainted del juego, como su personaje base, Lilith, no puede disparar. Dispara desde su barriga un feto demonio con el que puede golpear a los enemigos haciendo un por tres de tu daño actual, también, el feto puede disparar si mantienes pulsado, las lágrimas serán disparadas al enemigo pero no serán tele-dirigidas.<br> Se recomienda spamear el botón de disparo para atacar cuerpo a cuerpo con el feto y usar las lágrimas si tienes una buena sinergia o efectos de lagrimas."
+  },
+  "keeper": {
+    "nombre": "keeper",
+    "imagen": "personajesimagenes/keeper.png",
+    "vida": [
+      {"tipo": "moneda", "cantidad": 2}
+    ],
+    "daño": 4.20,
+    "lagrimas": 1.06,
+    "vellagrimas": 1.00,
+    "rango": 6.50,
+    "velocidad": 0.90,
+    "suerte": -2.00,
+    "descripcioncorta": "codicia >:D gambling.",
+    "consumibles": [{"tipo": "bomba", "cantidad": 1}],
+    "objetos": "collectibles_349_woodennickel",
+    "descripcionlarga": "Keeper es el décimo tercer personaje introducido en el juego y el tercero secreto, para desbloquearlo tienes que donar 1000 monedas en el modo Greed<img src='/the-isaac-of-wiki/pisos/pisosimagenes/greed.jpeg' height='20' alt='Greed Mode'>, este personaje tiene disparo triple y no tiene corazones por que son sustituidos por monedas, los corazones que te encuentres se convertirán en moscas, si te han dado un golpe para recuperar la vida tendrás que coger una moneda para restaurarla.<br>Los pactos de demonio no te piden corazones si no que monedas (15 o 30 monedas), empieza la partida con una bomba."
+  },
+  "tainted_keeper": {
+    "nombre": "Tainted keeper",
+    "imagen": "personajesimagenes/t keeper.png",
+    "vida": [
+      {"tipo": "moneda", "cantidad": 2}
+    ],
+    "daño": 4.20,
+    "lagrimas": 0.90,
+    "vellagrimas": 1.00,
+    "rango": 6.50,
+    "velocidad": 0.90,
+    "suerte": -2.00,
+    "consumibles": [{"tipo": "bomba", "cantidad": 1}],
+    "objetos": "collectibles_715_hold",
+    "descripcioncorta": "La versión corrompida de blue baby.",
+    "descripcionlarga": "Tainted Keeper es el décimo tercer personaje tainted del juego, este personaje es parecido a Keeper base pero con mejoras, su vida sigue siendo de monedas y podrá tener hasta un límite de dos contenedores, tiene un disparo quadruple como el objeto Mutant Spider.<br>Cada vez que mates a un enemigo soltara una moneda (de cualquier tipo) que desaparecerá en poco tiempo, las tiendas estarán siempre abiertas sin necesidad de usar llaves y estas serán mejores que de normal teniendo más objetos que comprar de pools distintas (pueden salir objetos de sala del tesoro<img src='/the-isaac-of-wiki/objetos/pools/Treasure pool.png' width='20' alt='treasure Room'> / amarilla, tienda<img src='/the-isaac-of-wiki/objetos/pools/shop pool.png' width='20' alt='shop Room'>… ). Todos los objetos costarán dinero (15 o 30 monedas o 99 si es el objeto R Key).Empieza con una bomba<br>Recomiendo en los primeros pisos solo ir a las tiendas y no entrar a las salas del tesoro<img src='/the-isaac-of-wiki/objetos/pools/Treasure pool.png' width='20' alt='treasure Room'> / amarillas para tener una mayor posibilidad de que te salga planetario, después de que salga puedes jugar normal."
+  },
+  "apollyon": {
+    "nombre": "apollyon",
+    "imagen": "personajesimagenes/apollyon.png",
+    "vida": [
+      {"tipo": "rojo", "cantidad": 2}
+    ],
+    "daño": 3.50,
+    "lagrimas": 2.73,
+    "vellagrimas": 1.00,
+    "rango": 6.50,
+    "velocidad": 1.23,
+    "suerte": 0.00,
+    "descripcioncorta": "absorcion.",
+    "consumibles": [],
+    "objetos": "collectibles_477_void",
+    "descripcionlarga": "Apollyon es el décimo cuarto personaje introducido en el juego, para desbloquearlo tienes que derrotar a Mega Satan por primera vez, tiene el item Void<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_477_void.png' width='20' alt='void'>, es una activa que le permite absorber objetos a cambio de estadísticas si son pasivos o su función si son activos."
+},
+  "tainted_apollyon": {
+    "nombre": "Tainted apollyon",
+    "imagen": "personajesimagenes/t apollyon.png",
+    "vida": [
+      {"tipo": "rojo", "cantidad": 2}
+    ],
+    "daño": 3.50,
+    "lagrimas": 1.82,
+    "vellagrimas": 1.00,
+    "rango": 6.50,
+    "velocidad": 1.00,
+    "suerte": 0.00,
+    "consumibles": [],
+    "objetos": "collectibles_706_abyss",
+    "descripcioncorta": "La versión corrompida de eve.",
+    "descripcionlarga": "Tainted Apollyon es el décimo cuarto personaje tainted del juego, empieza con el ítem Abyss<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_706_abyss.png' width='20' alt='abyss'> que te permite absorber items convirtiéndolos en moscas de color rojo, estas causan tu daño por tick (3 tick son 1 segundo). Las moscas pueden tener sinergias, por ejemplo si absorbes un ítem relacionado con la tecnología (Technology, Tech X, Technology Zero…) funcionara como una lágrima de Jacob’s Ladder haciendo rayos que harán daño."
+   },
+  "forgotten_&_soul": {
+    "nombre": "forgotten & soul",
+    "imagen": "personajesimagenes/forgotten.png",
+    "vida": [
+      {"tipo": "rojo", "cantidad": 3},{"tipo": "azul", "cantidad": 1}
+    ],
+    "daño": 5.25,
+    "lagrimas": 2.50,
+    "vellagrimas": 1.36,
+    "rango": 6.50,
+    "velocidad": 1.00,
+    "suerte": 0.00,
+    "descripcioncorta": "el olvidado enterrado destruido",
+    "consumibles": [],
+    "objetos": "",
+    "descripcionlarga": "The Forgotten es el décimo quinto personaje introducido en el juego y el cuarto y último secreto. Su método de obtención es un poco más complicado que el resto. En el primer piso tendrás que derrotar al boss en menos de un minuto, después volver a la habitación donde inicias la partida y poner una bomba, del cielo caerá un trozo de una pala, al cogerla la tendrás de activa y te caerán pies de la madre del cielo, no podrás quitarte la activa si quieres desbloquearlo, si usas la activa dejarán de caer los pies por una habitación.<br>Tendrás que aguantar así hasta llegar al jefe de Mom, al derrotarlo se abrirá Boss Rush (tienes que llegar antes de los 20 min) y tendrás que completarla, al acabar te darán la segunda parte de la pala teniéndola completa, tendrás que coger The Negative<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_328_thenegative.png' width='20' alt='the negative'> para después poder ir a la Dark Room.<br>Ahora la activa te permitirá saltarte un piso entero si la usas, haces los pisos del Utero y vas a por la ruta de abajo con la trampilla, después de derrotar a Mom’s Heart o It Lives.<br>Luego de derrotar a Satan, te metes en el cofre y estarás en la Dark Room, de allí te haces el piso hasta encontrar una sala vacía que en el suelo tiene tierra removida, te pones encima y usas la pala para conseguir finalmente a The Forgotten.<br> personaje tiene la habilidad de cambiar entre dos con la letra Ctrl (Control), el primero es Forgotten que ataca a melee con un hueso que puede lanzar, y el segundo es The Soul que dispara lágrimas espectrales y puede volar pero está encadenado al cuerpo de Forgotten que puede bloquear lágrimas.<br>Si haces un pacto de demonio, puedes utilizar a The Soul para coger el item que quieras hasta quedarte sin corazones, luego tendrás que cambiar rápidamente a Forgotten para no morir (si usas la tecla Ctrl no te dejara cambiar de personaje). Al encontrar un corazón de alma o corazón negro podrás cogerlo volviendo a tener vida con The Soul y poder jugar con el."
+  },
+  "tainted_forgotten_&_soul": {
+    "nombre": "Tainted forgotten & soul",
+    "imagen": "personajesimagenes/t forgotten.png",
+    "vida": [
+      {"tipo": "azul", "cantidad": 3}
+    ],
+    "daño": 5.25,
+    "lagrimas": 2.50,
+    "vellagrimas": 1.36,
+    "rango": 6.50,
+    "velocidad": 1.00,
+    "suerte": 0.00,
+    "consumibles": [],
+    "objetos": "",
+    "descripcioncorta": "La versión corrompida de forgotten & soul.",
+    "descripcionlarga": "Tainted Forgotten es el décimo quinto personaje tainted del juego, no puedes tener corazones rojos, se controla a The Soul para poder moverte y para atacar los restos de Forgotten, el daño solo lo recibe The Soul y atacas tirando los restos de Forgotten o disparando con el hueso. Puedes hacer un combo dandole a recargar el hueso, cogiendo a Forgotten y lanzarlo mientras sale disparado el hueso.<br>Forgotten puede bloquear lágrimas y pondrá el las bombas, si levantas el cuerpo podrás poner la bomba con The Soul. Puedes entrar a las salas cursed tirando Forgotten por la puerta y salir igual sin recibir daño. También, puedes abrir los cofres con pinchos sin recibir daño (no hace falta que lo hagas con Forgotten, con The Soul también puedes). Puedes entrar a la dimensión de espejo en Downpour II sin necesidad de quemarte en el fuego blanco."
+  },
+  "bethany": {
+    "nombre": "bethany",
+    "imagen": "personajesimagenes/bethany.png",
+    "vida": [
+      {"tipo": "negro", "cantidad": 3}
+    ],
+    "daño": 3.50,
+    "lagrimas": 2.73,
+    "vellagrimas": 1.00,
+    "rango": 6.50,
+    "velocidad": 1.00,
+    "suerte": 0.00,
+    "descripcioncorta": "fuegitos.",
+    "consumibles": [{"tipo": "carta", "cantidad": 1}],
+    "objetos": "collectibles_584_bookofvirtues",
+    "descripcionlarga": "Bethany es el décimo sexto personaje introducido en el juego, para desbloquearlo tienes que derrotar a Mom’s Heart o It Lives<img src='/the-isaac-of-wiki/jefes/jefesimg/mom%20heart.png' width='25' alt='corazon Boss'> con Lazarus<img src='personajesimagenes/lazarus.png' width='20' alt='lazaro'> sin perder su vida extra ninguna vez. Este personaje comienza con el item Book of Virtues que crea fuegos que disparan y te protegen, también tiene sinergia con muchos items activos y el primer pacto siempre será de pacto de ángel. Bethany no puede tener vida que no sean corazones rojos, ya que los corazones azules y negros le darán cargas extra al libro actuando como baterías adicionales."
+},
+  "tainted_bethany": {
+    "nombre": "Tainted bethany",
+    "imagen": "personajesimagenes/t bethany.png",
+    "vida": [
+      {"tipo": "azul", "cantidad": 3}
+    ],
+    "daño": 3.50,
+    "lagrimas": 2.73,
+    "vellagrimas": 1.00,
+    "rango": 6.50,
+    "velocidad": 1.00,
+    "suerte": 0,
+    "consumibles": [{"tipo": "", "cantidad": 0}],
+    "objetos": "collectibles_712_lemegeton",
+    "descripcioncorta": "La versión corrompida de bethany.",
+    "descripcionlarga": "Tainted Bethany es el décimo sexto personaje tainted del juego, no puede tener corazones rojos, empieza con el ítem Lemegeton<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_712_lemegeton.png' width='20' alt='the negative'> que crea fuegos de items haciendo que los tengas mientras que no se apague, si lo usas en una sala tiene un porcentaje de que el ítem del fuego sea de esa pool, los corazones rojos los puedes utilizar como cargas extra de las activas."
+},
+  "jacob_&_esau": {
+    "nombre": "jacob & esau",
+    "imagen": "personajesimagenes/jacob.png",
+    "vida": [
+      {"tipo": "rojo", "cantidad": 4},{"tipo": "azul", "cantidad": 1}
+    ],
+    "daño": 5.00,
+    "lagrimas": 3.00,
+    "vellagrimas": 1.00,
+    "rango": 5.00,
+    "velocidad": 1.15,
+    "suerte": 1.00,
+    "descripcioncorta": "hermanos.",
+    "consumibles": [{"tipo": "", "cantidad": 0}],
+    "objetos": "",
+    "descripcionlarga": "Jacob y Esau es el décimo séptimo personaje introducido en el juego, para desbloquearlo tienes que derrotar a Mother por primera vez.<br>Este personaje son dos pero controlados a la vez, cada uno tiene sus estadísticas y sus ítems distintos ya que no los comparten. Al usar una bomba los dos pondrán una bomba dándote un 2×1 de bombas. Si mantienes la tecla Ctrl (Control) podrás mover a Jacob mientras Esau esta quieto, esto puede darte mas juego al utilizar las bombas. Si quieres usar activos con ellos será con el espacio o la Q, pero si son consumibles con el tendrás que mantener la tecla Ctrl y después al espacio o la Q (depende de la activa o consumible que quieras usar con cada personaje).El personaje es complicado ya que tendrás que saber distribuir bien la vida y los items aparte que es fácil que se separen, ya que cada uno posee su propia colisión.<br>Si uno de los dos personajes muere el otro también.Recomiendo jugar bastante pendiente de que no se separen, hay algunos hits que son muy difíciles de esquivar por su doble hit box, para tener mas items es mejor ir a la ruta alternativa para poder coger los items de la sala del tesoro / amarilla a la vez, puedes abrir la puerta de minas con una bomba si separas los personajes un poco."
+},
+  "tainted_jacob": {
+    "nombre": "Tainted jacob",
+    "imagen": "personajesimagenes/t jacob.png",
+    "vida": [
+      {"tipo": "azul", "cantidad": 3}
+    ],
+    "daño": 3.50,
+    "lagrimas": 2.73,
+    "vellagrimas": 1.00,
+    "rango": 6.50,
+    "velocidad": 1.00,
+    "suerte": 0,
+    "consumibles": [{"tipo": "", "cantidad": 0}],
+    "objetos": "collectibles_722_animasola",
+    "descripcioncorta": "La versión corrompida de bethany.",
+    "descripcionlarga": "Tainted Jacob y Esau es el décimo séptimo personaje tainted del juego, es un personaje normal pero al antes de que pase el primer minuto saldrá Dark Esau, es una sombra que te perseguirá para intentar darte y transformarte a una especie de Tainted The Lost (tendrás las mismas habilidades menos el better items y la holy).<br>Dark Esau hace daño por contacto a los enemigos y también puede quemar, se te quita el efecto de Tainted The Lost cuando cambias de piso, puedes tener pacto de demonio gratis si estas en esta forma. Empieza con el ítem Anima Sola<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_722_animasola.png' width='20' alt='anima sola'> que te permite retener a Dark Esau durante unos segundos con unas cadenas.<br>Dark Esau es inmortal, no lo puedes eliminar de ninguna manera. a menos que lo borres con la goma<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_638_eraser.png' width='20' alt='the negative'>"
 }
 }
