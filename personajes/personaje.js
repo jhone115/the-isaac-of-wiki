@@ -109,11 +109,12 @@ function mostrarPersonaje(p) {
 
     document.getElementById("nombre").textContent = p.nombre;
     
-    // MANEJO DE IMÁGENES MÚLTIPLES
+    // CORRECCIÓN: MANEJO DE IMÁGENES MÚLTIPLES
     const imagenContainer = document.getElementById("imagen");
+    imagenContainer.innerHTML = ''; // Limpiar contenedor
+
     if (Array.isArray(p.imagen)) {
         // Si es un array de imágenes, crear múltiples elementos img
-        imagenContainer.innerHTML = '';
         p.imagen.forEach(imagenSrc => {
             const img = document.createElement('img');
             img.src = imagenSrc;
@@ -121,9 +122,11 @@ function mostrarPersonaje(p) {
             imagenContainer.appendChild(img);
         });
     } else {
-        // Si es un string simple, usar como antes
-        imagenContainer.src = p.imagen;
-        imagenContainer.alt = p.nombre;
+        // Si es un string simple, crear un solo elemento img
+        const img = document.createElement('img');
+        img.src = p.imagen;
+        img.alt = p.nombre;
+        imagenContainer.appendChild(img);
     }
     
     document.getElementById("descripcioncorta").innerHTML = `
