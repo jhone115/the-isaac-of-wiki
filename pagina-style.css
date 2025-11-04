@@ -21,7 +21,7 @@
 /* Para personajes con dos imágenes, hacerlas más pequeñas para que quepan */
 #imagen img:first-child:nth-last-child(2),
 #imagen img:first-child:nth-last-child(2) ~ img {
-    width: 220px;
+    width: 200px;
 }
 
 .search-result-item {
