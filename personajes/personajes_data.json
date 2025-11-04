@@ -478,7 +478,8 @@
    },
   "forgotten_y_soul": {
     "nombre": "forgotten & soul",
-    "imagen": ["personajesimagenes/forgotten.png","personajesimagenes/soul of forgotten.png"],
+    "imagen": ["personajesimagenes/forgotten.png",
+    "personajesimagenes/soul of forgotten.png"],
     "vida": [
       {"tipo": "rojo", "cantidad": 3},{"tipo": "azul", "cantidad": 1}
     ],
@@ -495,7 +496,8 @@
   },
   "tainted_forgotten_y_soul": {
     "nombre": "Tainted forgotten & soul",
-    "imagen": ["personajesimagenes/t forgotten.png","personajesimagenes/t soul of forgotten.png"],
+    "imagen": ["personajesimagenes/t forgotten.png",
+    "personajesimagenes/t soul of forgotten.png"],
     "vida": [
       {"tipo": "azul", "cantidad": 3}
     ],
@@ -546,7 +548,8 @@
 },
   "jacob_y_esau": {
     "nombre": "jacob & esau",
-    "imagen": ["personajesimagenes/jacob.png","personajesimagenes/esau.png"],
+    "imagen": ["personajesimagenes/jacob.png",
+    "personajesimagenes/esau.png"],
     "vida": [
       {"tipo": "rojo", "cantidad": 4},{"tipo": "azul", "cantidad": 1}
     ],
@@ -563,7 +566,8 @@
 },
   "tainted_jacob": {
     "nombre": "Tainted jacob",
-    "imagen": ["personajesimagenes/t jacob.png","personajesimagenes/t esau.png"],
+    "imagen": ["personajesimagenes/t jacob.png",
+    "personajesimagenes/t esau.png"],
     "vida": [
       {"tipo": "azul", "cantidad": 3}
     ],

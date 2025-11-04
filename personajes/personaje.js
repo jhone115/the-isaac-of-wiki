@@ -34,7 +34,7 @@ async function cargarDatosPersonajes() {
     }
 }
 
-// Función principal MEJORADA con manejo de IDs
+// Función principal
 async function initializePersonajePage() {
     console.log('🚀 Inicializando página...');
     
@@ -43,7 +43,6 @@ async function initializePersonajePage() {
     console.log('📝 Personaje ID desde URL:', personajeId);
 
     if (personajeId) {
-        // Normalizar el ID (minúsculas, sin espacios, etc.)
         personajeId = personajeId.toLowerCase().trim();
         
         const data = await cargarDatosPersonajes();
@@ -54,10 +53,8 @@ async function initializePersonajePage() {
         
         console.log('📊 Datos disponibles:', Object.keys(data));
         
-        // Buscar el personaje
         let personaje = data[personajeId];
         
-        // Si no se encuentra, probar alternativas
         if (!personaje) {
             console.log('🔍 Buscando variaciones del ID...');
             
@@ -79,7 +76,11 @@ async function initializePersonajePage() {
                 'tainted forgotten': 'tainted_forgotten_y_soul',
                 't forgotten': 'tainted_forgotten_y_soul',
                 'tainted forgotten & soul': 'tainted_forgotten_y_soul',
-                't forgotten & soul': 'tainted_forgotten_y_soul'
+                't forgotten & soul': 'tainted_forgotten_y_soul',
+                'jacob & esau': 'jacob_esau',
+                'jacob and esau': 'jacob_esau',
+                'jacob': 'jacob_esau',
+                'esau': 'jacob_esau'
             };
             
             const alternativeId = idVariations[personajeId];
@@ -93,11 +94,10 @@ async function initializePersonajePage() {
             console.log('✅ Mostrando personaje:', personaje.nombre);
             mostrarPersonaje(personaje);
         } else {
-            console.log('❌ Personaje no encontrado. IDs disponibles:', Object.keys(data));
+            console.log('❌ Personaje no encontrado');
             mostrarError('Personaje no encontrado');
         }
     } else {
-        console.log('⚠️ No se encontró ID en la URL');
         mostrarError('No se especificó un personaje');
     }
 }
@@ -123,45 +123,67 @@ function mostrarPersonaje(p) {
     // Actualizar nombre
     document.getElementById("nombre").textContent = p.nombre;
     
-    // MANEJO CORREGIDO DE IMÁGENES
+    // MANEJO CORREGIDO DE IMÁGENES MÚLTIPLES
     const imagenContainer = document.querySelector('.imagen');
-    const imagenElement = document.getElementById("imagen");
     
     if (!imagenContainer) {
         console.error('❌ No se encontró el contenedor de imagen');
         return;
     }
     
-    // Si hay múltiples imágenes, reemplazar el contenedor .imagen
+    // Limpiar y reconstruir el contenedor de imagen manteniendo la estructura
+    imagenContainer.innerHTML = '<div id="imagenes-multiples"></div><p id="descripcioncorta"></p>';
+    
+    const imagenesMultiples = document.getElementById('imagenes-multiples');
+    const descripcionCorta = document.getElementById("descripcioncorta");
+    
+    // Determinar qué imágenes mostrar
+    let imagenes = [];
+    
     if (Array.isArray(p.imagenes)) {
-        console.log(`🖼️ Cargando ${p.imagenes.length} imágenes del personaje`);
-        
-        // Crear nuevo contenido para el contenedor .imagen
-        let imagenesHTML = '';
-        p.imagenes.forEach((imagenSrc, index) => {
-            imagenesHTML += `<img src="${imagenSrc}" alt="${p.nombre} - Imagen ${index + 1}" class="character-image" width="95">`;
-            if (index < p.imagenes.length - 1) {
-                imagenesHTML += '<br>';
+        // Caso 1: Array de imágenes
+        imagenes = p.imagenes;
+        console.log(`🖼️ Cargando ${imagenes.length} imágenes desde array`);
+    } else if (p.imagen && p.imagen.includes(',')) {
+        // Caso 2: String con comas (compatibilidad)
+        imagenes = p.imagen.split(',').map(img => img.trim());
+        console.log(`🖼️ Cargando ${imagenes.length} imágenes desde string dividido`);
+    } else if (p.imagen) {
+        // Caso 3: Una sola imagen
+        imagenes = [p.imagen];
+        console.log('🖼️ Cargando 1 imagen');
+    }
+    
+    // Mostrar las imágenes
+    if (imagenes.length > 0) {
+        imagenes.forEach((imagenSrc, index) => {
+            const img = document.createElement('img');
+            img.src = imagenSrc;
+            img.alt = `${p.nombre} - Imagen ${index + 1}`;
+            img.className = 'character-image';
+            img.width = 95;
+            img.onerror = function() {
+                console.error(`❌ Error cargando imagen: ${imagenSrc}`);
+                this.src = "../objetos/consumibles/corazon vacio.png";
+            };
+            imagenesMultiples.appendChild(img);
+            
+            // Agregar espacio entre imágenes
+            if (index < imagenes.length - 1) {
+                imagenesMultiples.appendChild(document.createTextNode(' '));
             }
         });
-        
-        // Reemplazar todo el contenido del contenedor .imagen
-        imagenContainer.innerHTML = imagenesHTML + '<p id="descripcioncorta"></p>';
-        
-    } else if (p.imagen) {
-        // Una sola imagen - usar el elemento img existente
-        console.log('🖼️ Cargando 1 imagen del personaje');
-        imagenElement.src = p.imagen;
-        imagenElement.alt = p.nombre;
     } else {
-        // No hay imágenes definidas
-        console.warn('⚠️ No se encontraron imágenes para el personaje');
-        imagenElement.src = "../objetos/consumibles/corazon vacio.png";
-        imagenElement.alt = "Imagen no disponible";
+        // Imagen por defecto
+        const fallbackImg = document.createElement('img');
+        fallbackImg.src = "../objetos/consumibles/corazon vacio.png";
+        fallbackImg.alt = "Imagen no disponible";
+        fallbackImg.className = "character-image";
+        fallbackImg.width = 95;
+        imagenesMultiples.appendChild(fallbackImg);
     }
     
     // Actualizar descripción corta (estadísticas)
-    const descripcionCorta = document.getElementById("descripcioncorta");
     if (descripcionCorta) {
         descripcionCorta.innerHTML = `
             <table class="table table-bordered mt-3">

@@ -10,6 +10,21 @@
     border: 1px solid #dee2e6 !important;
 }
 
+#imagenes-multiples {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.character-image {
+    border: 2px solid #333;
+    border-radius: 8px;
+    background: #f8f9fa;
+}
+
 .search-result-item:hover {
     background-color: #f8f9fa;
     transform: translateY(-2px);
