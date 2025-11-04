@@ -108,7 +108,21 @@ function mostrarPersonaje(p) {
     });
 
     document.getElementById("nombre").textContent = p.nombre;
-    document.getElementById("imagen").src = p.imagen;
+    
+    // Mostrar múltiples imágenes
+    const imagenesContainer = document.getElementById("imagenes-personaje");
+    imagenesContainer.innerHTML = ""; // Limpiar contenedor
+    
+    // Usar el array de imágenes si existe, sino usar la imagen individual
+    const imagenes = p.imagenes || [p.imagen];
+    
+    imagenes.forEach(imagenSrc => {
+        const img = document.createElement("img");
+        img.src = imagenSrc;
+        img.alt = p.nombre;
+        img.className = "character-image";
+        imagenesContainer.appendChild(img);
+    });
     
     document.getElementById("descripcioncorta").innerHTML = `
         <table>
