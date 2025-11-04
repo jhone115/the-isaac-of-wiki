@@ -13,7 +13,7 @@
 }
 
 #imagen img {
-    max-width: 200px;
+    width: 170px;
     height: auto;
     border-radius: 10px;
 }
@@ -21,7 +21,7 @@
 /* Para personajes con dos imágenes, hacerlas más pequeñas para que quepan */
 #imagen img:first-child:nth-last-child(2),
 #imagen img:first-child:nth-last-child(2) ~ img {
-    width: 200px;
+    width: 170px;
 }
 
 .search-result-item {
