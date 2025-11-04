@@ -476,7 +476,7 @@
     "descripcioncorta": "La versión corrompida de eve.",
     "descripcionlarga": "Tainted Apollyon es el décimo cuarto personaje tainted del juego, empieza con el ítem Abyss<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_706_abyss.png' width='20' alt='abyss'> que te permite absorber items convirtiéndolos en moscas de color rojo, estas causan tu daño por tick (3 tick son 1 segundo). Las moscas pueden tener sinergias, por ejemplo si absorbes un ítem relacionado con la tecnología (Technology, Tech X, Technology Zero…) funcionara como una lágrima de Jacob’s Ladder haciendo rayos que harán daño."
    },
-  "forgotten_&_soul": {
+  "forgotten_y_soul": {
     "nombre": "forgotten & soul",
     "imagen": "personajesimagenes/forgotten.png",
     "vida": [
@@ -493,7 +493,7 @@
     "objetos": "",
     "descripcionlarga": "The Forgotten es el décimo quinto personaje introducido en el juego y el cuarto y último secreto. Su método de obtención es un poco más complicado que el resto. En el primer piso tendrás que derrotar al boss en menos de un minuto, después volver a la habitación donde inicias la partida y poner una bomba, del cielo caerá un trozo de una pala, al cogerla la tendrás de activa y te caerán pies de la madre del cielo, no podrás quitarte la activa si quieres desbloquearlo, si usas la activa dejarán de caer los pies por una habitación.<br>Tendrás que aguantar así hasta llegar al jefe de Mom, al derrotarlo se abrirá Boss Rush (tienes que llegar antes de los 20 min) y tendrás que completarla, al acabar te darán la segunda parte de la pala teniéndola completa, tendrás que coger The Negative<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_328_thenegative.png' width='20' alt='the negative'> para después poder ir a la Dark Room.<br>Ahora la activa te permitirá saltarte un piso entero si la usas, haces los pisos del Utero y vas a por la ruta de abajo con la trampilla, después de derrotar a Mom’s Heart o It Lives.<br>Luego de derrotar a Satan, te metes en el cofre y estarás en la Dark Room, de allí te haces el piso hasta encontrar una sala vacía que en el suelo tiene tierra removida, te pones encima y usas la pala para conseguir finalmente a The Forgotten.<br> personaje tiene la habilidad de cambiar entre dos con la letra Ctrl (Control), el primero es Forgotten que ataca a melee con un hueso que puede lanzar, y el segundo es The Soul que dispara lágrimas espectrales y puede volar pero está encadenado al cuerpo de Forgotten que puede bloquear lágrimas.<br>Si haces un pacto de demonio, puedes utilizar a The Soul para coger el item que quieras hasta quedarte sin corazones, luego tendrás que cambiar rápidamente a Forgotten para no morir (si usas la tecla Ctrl no te dejara cambiar de personaje). Al encontrar un corazón de alma o corazón negro podrás cogerlo volviendo a tener vida con The Soul y poder jugar con el."
   },
-  "tainted_forgotten_&_soul": {
+  "tainted_forgotten_y_soul": {
     "nombre": "Tainted forgotten & soul",
     "imagen": "personajesimagenes/t forgotten.png",
     "vida": [
@@ -544,7 +544,7 @@
     "descripcioncorta": "La versión corrompida de bethany.",
     "descripcionlarga": "Tainted Bethany es el décimo sexto personaje tainted del juego, no puede tener corazones rojos, empieza con el ítem Lemegeton<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_712_lemegeton.png' width='20' alt='the negative'> que crea fuegos de items haciendo que los tengas mientras que no se apague, si lo usas en una sala tiene un porcentaje de que el ítem del fuego sea de esa pool, los corazones rojos los puedes utilizar como cargas extra de las activas."
 },
-  "jacob_&_esau": {
+  "jacob_y_esau": {
     "nombre": "jacob & esau",
     "imagen": "personajesimagenes/jacob.png",
     "vida": [
