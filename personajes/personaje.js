@@ -49,19 +49,18 @@ async function initializePersonajePage() {
         const data = await cargarDatosPersonajes();
         
         if (!data) {
-            return; // Error ya manejado en cargarDatosPersonajes
+            return;
         }
         
         console.log('📊 Datos disponibles:', Object.keys(data));
         
-        // Buscar el personaje - probar diferentes variaciones del ID
+        // Buscar el personaje
         let personaje = data[personajeId];
         
         // Si no se encuentra, probar alternativas
         if (!personaje) {
             console.log('🔍 Buscando variaciones del ID...');
             
-            // Mapeo de IDs alternativos
             const idVariations = {
                 'isaac': 'isaac',
                 'tainted isaac': 'tainted_isaac', 
@@ -103,111 +102,103 @@ async function initializePersonajePage() {
     }
 }
 
-// Función MEJORADA para mostrar personajes con múltiples imágenes
+// Función CORREGIDA para mostrar personajes
 function mostrarPersonaje(p) {
     let corazones = "";
-    p.vida.forEach(obj => {
-        for (let i = 0; i < obj.cantidad; i++) {
-            corazones += `<img src="../objetos/consumibles/corazon ${obj.tipo}.png" width="20">`;
-        }
-    });
+    if (p.vida) {
+        p.vida.forEach(obj => {
+            for (let i = 0; i < obj.cantidad; i++) {
+                corazones += `<img src="../objetos/consumibles/corazon ${obj.tipo}.png" width="20">`;
+            }
+        });
+    }
     
     let objetos = "";
-    p.consumibles.forEach(obje => {
-        objetos += `<img src="../objetos/consumibles/${obje.tipo}.png" width="20"> ${obje.cantidad} `;
-    });
+    if (p.consumibles) {
+        p.consumibles.forEach(obje => {
+            objetos += `<img src="../objetos/consumibles/${obje.tipo}.png" width="20"> ${obje.cantidad} `;
+        });
+    }
 
+    // Actualizar nombre
     document.getElementById("nombre").textContent = p.nombre;
     
-    // MOSTRAR MÚLTIPLES IMÁGENES - Versión mejorada con compatibilidad
-    const imagenContainer = document.getElementById("imagen");
-    const descripcionCorta = document.getElementById("descripcioncorta");
+    // MANEJO CORREGIDO DE IMÁGENES
+    const imagenContainer = document.querySelector('.imagen');
+    const imagenElement = document.getElementById("imagen");
     
     if (!imagenContainer) {
         console.error('❌ No se encontró el contenedor de imagen');
         return;
     }
     
-    // Limpiar el contenedor de imagen
-    imagenContainer.innerHTML = "";
-    
-    // Manejar tanto array como string individual
+    // Si hay múltiples imágenes, reemplazar el contenedor .imagen
     if (Array.isArray(p.imagenes)) {
-        // Múltiples imágenes
         console.log(`🖼️ Cargando ${p.imagenes.length} imágenes del personaje`);
+        
+        // Crear nuevo contenido para el contenedor .imagen
+        let imagenesHTML = '';
         p.imagenes.forEach((imagenSrc, index) => {
-            const img = document.createElement("img");
-            img.src = imagenSrc;
-            img.alt = `${p.nombre} - Imagen ${index + 1}`;
-            img.className = "character-image";
-            img.width = 95;
-            img.onerror = function() {
-                console.error(`❌ Error cargando imagen: ${imagenSrc}`);
-                this.src = "../objetos/consumibles/corazon vacio.png";
-            };
-            imagenContainer.appendChild(img);
-            
-            // Agregar un salto de línea si no es la última imagen
+            imagenesHTML += `<img src="${imagenSrc}" alt="${p.nombre} - Imagen ${index + 1}" class="character-image" width="95">`;
             if (index < p.imagenes.length - 1) {
-                imagenContainer.appendChild(document.createElement("br"));
+                imagenesHTML += '<br>';
             }
         });
+        
+        // Reemplazar todo el contenido del contenedor .imagen
+        imagenContainer.innerHTML = imagenesHTML + '<p id="descripcioncorta"></p>';
+        
     } else if (p.imagen) {
-        // Una sola imagen (compatibilidad hacia atrás)
+        // Una sola imagen - usar el elemento img existente
         console.log('🖼️ Cargando 1 imagen del personaje');
-        const img = document.createElement("img");
-        img.src = p.imagen;
-        img.alt = p.nombre;
-        img.className = "character-image";
-        img.width = 95;
-        img.onerror = function() {
-            console.error(`❌ Error cargando imagen: ${p.imagen}`);
-            this.src = "../objetos/consumibles/corazon vacio.png";
-        };
-        imagenContainer.appendChild(img);
+        imagenElement.src = p.imagen;
+        imagenElement.alt = p.nombre;
     } else {
         // No hay imágenes definidas
         console.warn('⚠️ No se encontraron imágenes para el personaje');
-        const fallbackImg = document.createElement("img");
-        fallbackImg.src = "../objetos/consumibles/corazon vacio.png";
-        fallbackImg.alt = "Imagen no disponible";
-        fallbackImg.className = "character-image";
-        fallbackImg.width = 95;
-        imagenContainer.appendChild(fallbackImg);
+        imagenElement.src = "../objetos/consumibles/corazon vacio.png";
+        imagenElement.alt = "Imagen no disponible";
     }
     
-    // Mostrar estadísticas y descripción
-    descripcionCorta.innerHTML = `
-        <table class="table table-bordered">
-            <tr><td colspan="2">${p.descripcioncorta}</td></tr>
-            <tr><td colspan="2" class="text-center fw-bold">stats</td></tr>
-            <tr>
-                <td><img src="../objetos/consumibles/corazon vacio.png" width="20"> Vida<br> ${corazones}</td>
-                <td><img src="../personajes/statsimg/daño.png" width="20"> Daño <br>${p.daño}</td>
-            </tr>
-            <tr>
-                <td><img src="../personajes/statsimg/lagrimas.png" width="20"> Lágrimas <br>${p.lagrimas}</td>
-                <td><img src="../personajes/statsimg/vel lagrima.png" width="20"> Vel. Lágrimas <br>${p.vellagrimas}</td>
-            </tr>
-            <tr>
-                <td><img src="../personajes/statsimg/rango.png" width="20"> Rango <br>${p.rango}</td>
-                <td><img src="../personajes/statsimg/velocidad.png" width="20"> Velocidad<br>${p.velocidad}</td>
-            </tr>
-            <tr>
-                <td colspan="2"><img src="../personajes/statsimg/suerte.png" width="20"> Suerte ${p.suerte}</td>
-            </tr>
-            <tr>
-                <td colspan="2" class="text-center fw-bold">items iniciales</td>
-            </tr>
-            <tr>
-                <td>${objetos}</td>
-                <td><img src="../objetos/objetosimg/${p.objetos}.png" width="20"></td>
-            </tr>
-        </table>`;
+    // Actualizar descripción corta (estadísticas)
+    const descripcionCorta = document.getElementById("descripcioncorta");
+    if (descripcionCorta) {
+        descripcionCorta.innerHTML = `
+            <table class="table table-bordered mt-3">
+                <tr><td colspan="2">${p.descripcioncorta || ''}</td></tr>
+                <tr><td colspan="2" class="text-center fw-bold">stats</td></tr>
+                <tr>
+                    <td><img src="../objetos/consumibles/corazon vacio.png" width="20"> Vida<br> ${corazones}</td>
+                    <td><img src="../personajes/statsimg/daño.png" width="20"> Daño <br>${p.daño || 'N/A'}</td>
+                </tr>
+                <tr>
+                    <td><img src="../personajes/statsimg/lagrimas.png" width="20"> Lágrimas <br>${p.lagrimas || 'N/A'}</td>
+                    <td><img src="../personajes/statsimg/vel lagrima.png" width="20"> Vel. Lágrimas <br>${p.vellagrimas || 'N/A'}</td>
+                </tr>
+                <tr>
+                    <td><img src="../personajes/statsimg/rango.png" width="20"> Rango <br>${p.rango || 'N/A'}</td>
+                    <td><img src="../personajes/statsimg/velocidad.png" width="20"> Velocidad<br>${p.velocidad || 'N/A'}</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><img src="../personajes/statsimg/suerte.png" width="20"> Suerte ${p.suerte || 'N/A'}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-center fw-bold">items iniciales</td>
+                </tr>
+                <tr>
+                    <td>${objetos}</td>
+                    <td>${p.objetos ? `<img src="../objetos/objetosimg/${p.objetos}.png" width="20">` : 'N/A'}</td>
+                </tr>
+            </table>`;
+    }
     
-    document.getElementById("descripcionlarga").innerHTML = p.descripcionlarga;
+    // Actualizar descripción larga
+    const descripcionLarga = document.getElementById("descripcionlarga");
+    if (descripcionLarga) {
+        descripcionLarga.innerHTML = p.descripcionlarga || '';
+    }
+    
     document.title = `${p.nombre} | The Isaac Wiki`;
-    
     console.log('✅ Personaje mostrado correctamente');
 }
 
