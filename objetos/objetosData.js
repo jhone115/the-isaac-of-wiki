@@ -3,7 +3,7 @@ let objetosData = {};
 
 async function cargarDatosObjetos() {
     try {
-        const response = await fetch('objetos/objetosData.json');
+        const response = await fetch('objetosData.json');
         objetosData = await response.json();
         return objetosData;
     } catch (error) {

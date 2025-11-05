@@ -34,7 +34,7 @@
     background-color: #f8f9fa;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-color: #0d6efd !important;
+    border-color: #270909 !important;
 }
 
 .search-item-image {
@@ -167,7 +167,7 @@
         flex: 1;
         max-width: 500px;
         text-align: left;
-        color: #0000cc;
+        color: #ffffff;
         }
 
         .panel-descripcion h2 {
@@ -233,7 +233,7 @@
         .avatar p {
         margin: 0;
         font-size: 14px;
-        color: rgb(9, 0, 179);
+        color: rgb(255, 255, 255);
         }
 
         .mynav {
@@ -280,7 +280,7 @@
             font-family: 'mifuente', sans-serif;
             background: url(../pisos/pisosimagenes/basement.jpeg);
             background-size: cover;
-            color: rgb(9, 0, 179);
+            color: rgb(255, 255, 255);
             line-height: 1.6;
             padding: 20px;
         }
@@ -340,7 +340,7 @@
             margin-bottom: 8px;
         }
         a {
-            color: #007acc;
+            color: #ffffff;
             text-decoration: none;
             transition: color 0.3s ease;
         }
