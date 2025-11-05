@@ -1,6 +1,15 @@
-
-document.addEventListener('DOMContentLoaded', function() {
+// pisos.js - Lógica principal con carga asíncrona de datos
+document.addEventListener('DOMContentLoaded', async function() {
     console.log('DOM cargado - inicializando pisos.js');
+
+    // Cargar datos primero
+    const datos = await cargarDatosPisos();
+    if (!datos) {
+        console.error('No se pudieron cargar los datos de pisos');
+        return;
+    }
+
+    console.log('Datos de pisos cargados correctamente');
 
     const pisoLinks = document.querySelectorAll('.piso-link');
     console.log(`Encontrados ${pisoLinks.length} enlaces de pisos`);
@@ -18,57 +27,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (window.location.pathname.includes('piso.html')) {
         console.log('Estamos en piso.html - procesando parámetros');
-        procesarPisoSeleccionado();
+        procesarPisoSeleccionado(datos);
     }
 });
 
-function procesarPisoSeleccionado() {
-
+function procesarPisoSeleccionado(datos) {
     const urlParams = new URLSearchParams(window.location.search);
     const pisoNombre = urlParams.get('piso');
     
     console.log(`Piso seleccionado: ${pisoNombre}`);
     
     if (pisoNombre) {
-
         document.title = `the isaac of wiki/${pisoNombre}`;
-
-        actualizarFondo(pisoNombre);
-
-        actualizarContenidoPiso(pisoNombre);
+        actualizarFondo(pisoNombre, datos.fondosPisos);
+        actualizarContenidoPiso(pisoNombre, datos.informacionPisos);
     } else {
         console.log('No se encontró parámetro de piso en la URL');
     }
 }
 
-function actualizarFondo(pisoNombre) {
-    const fondosPisos = {
-        'basement': '../pisos/pisosimagenes/basement.jpeg',
-        'cellar': '../pisos/pisosimagenes/cellar.jpeg',
-        'burningbasement': '../pisos/pisosimagenes/burningbasement.jpeg',
-        'caves': '../pisos/pisosimagenes/caves.jpeg',
-        'catacombs': '../pisos/pisosimagenes/catacombs.jpeg',
-        'floadedcaves': '../pisos/pisosimagenes/floadedcaves.jpeg',
-        'depths': '../pisos/pisosimagenes/depths.jpeg',
-        'necropolois': '../pisos/pisosimagenes/necropolois.jpeg',
-        'dankdepths': '../pisos/pisosimagenes/dankdepths.jpeg',
-        'womb': '../pisos/pisosimagenes/womb.jpeg',
-        'scarredwomb': '../pisos/pisosimagenes/scarredwomb.jpeg',
-        'sheol': '../pisos/pisosimagenes/sheol.jpeg',
-        'cathedral': '../pisos/pisosimagenes/cathedral.jpeg',
-        'chest': '../pisos/pisosimagenes/chest.jpeg',
-        'darkroom': '../pisos/pisosimagenes/darkroom.jpeg',
-        'void': '../pisos/pisosimagenes/void.jpeg',
-        'corpse': '../pisos/pisosimagenes/corpse.jpeg',
-        'mausoleum': '../pisos/pisosimagenes/mausoleum.jpeg',
-        'gehenna': '../pisos/pisosimagenes/gehenna.jpeg',
-        'downpour': '../pisos/pisosimagenes/Downpour.jpeg',
-        'dross': '../pisos/pisosimagenes/dross.jpeg',
-        'ashpit': '../pisos/pisosimagenes/ashpit.jpeg',
-        'mines': '../pisos/pisosimagenes/mines.jpeg',
-        'home': '../pisos/pisosimagenes/home.jpeg'
-    };
-
+function actualizarFondo(pisoNombre, fondosPisos) {
     const rutaCompleta = fondosPisos[pisoNombre];
     
     if (rutaCompleta) {
@@ -96,7 +74,7 @@ function actualizarFondo(pisoNombre) {
     }
 }
 
-function actualizarContenidoPiso(pisoNombre) {
+function actualizarContenidoPiso(pisoNombre, informacionPisos) {
     const tituloPiso = document.querySelector('h1');
     if (tituloPiso) {
         tituloPiso.textContent = pisoNombre.toUpperCase();
@@ -107,25 +85,46 @@ function actualizarContenidoPiso(pisoNombre) {
     if (contenedorInfo) {
         contenedorInfo.innerHTML = '';
 
-        const contenido = `
-            <h1 style="text-align: center;"><b>${pisoNombre.toUpperCase()}</b></h1>
-            <div class="piso-details">
-                <h2>Información del Piso</h2>
-                <p>Esta es la página para <strong>${pisoNombre}</strong>. Aquí puedes encontrar información detallada sobre este piso.</p>
-                
-                <h3>Características:</h3>
-                <ul>
-                    <li>Enemigos característicos</li>
-                    <li>Jefes que aparecen</li>
-                    <li>Objetos especiales</li>
-                    <li>Salas secretas</li>
-                </ul>
-                
-                <h3>Estrategias:</h3>
-                <p>Consejos para superar este piso...</p>
-            </div>
-        `;
+        const infoPiso = informacionPisos[pisoNombre];
         
-        contenedorInfo.innerHTML = contenido;
+        if (infoPiso) {
+            const contenido = `
+                <h1 style="text-align: center;"><b>${infoPiso.nombre.toUpperCase()}</b></h1>
+                <div class="piso-details">
+                    <h2>Información del Piso</h2>
+                    <p>${infoPiso.descripcion}</p>
+                    
+                    <h3>Características:</h3>
+                    <ul>
+                        ${infoPiso.caracteristicas.map(caract => `<li>${caract}</li>`).join('')}
+                    </ul>
+                    
+                    <h3>Estrategias:</h3>
+                    <p>${infoPiso.estrategias}</p>
+                </div>
+            `;
+            contenedorInfo.innerHTML = contenido;
+        } else {
+            // Contenido por defecto si no hay información específica
+            const contenido = `
+                <h1 style="text-align: center;"><b>${pisoNombre.toUpperCase()}</b></h1>
+                <div class="piso-details">
+                    <h2>Información del Piso</h2>
+                    <p>Esta es la página para <strong>${pisoNombre}</strong>. Aquí puedes encontrar información detallada sobre este piso.</p>
+                    
+                    <h3>Características:</h3>
+                    <ul>
+                        <li>Enemigos característicos</li>
+                        <li>Jefes que aparecen</li>
+                        <li>Objetos especiales</li>
+                        <li>Salas secretas</li>
+                    </ul>
+                    
+                    <h3>Estrategias:</h3>
+                    <p>Consejos para superar este piso...</p>
+                </div>
+            `;
+            contenedorInfo.innerHTML = contenido;
+        }
     }
 }

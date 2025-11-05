@@ -1,0 +1,343 @@
+{
+  "fondosPisos": {
+    "basement": "../pisos/pisosimagenes/basement.jpeg",
+    "cellar": "../pisos/pisosimagenes/cellar.jpeg",
+    "burningbasement": "../pisos/pisosimagenes/burningbasement.jpeg",
+    "caves": "../pisos/pisosimagenes/caves.jpeg",
+    "catacombs": "../pisos/pisosimagenes/catacombs.jpeg",
+    "floadedcaves": "../pisos/pisosimagenes/floadedcaves.jpeg",
+    "depths": "../pisos/pisosimagenes/depths.jpeg",
+    "necropolois": "../pisos/pisosimagenes/necropolois.jpeg",
+    "dankdepths": "../pisos/pisosimagenes/dankdepths.jpeg",
+    "womb": "../pisos/pisosimagenes/womb.jpeg",
+    "scarredwomb": "../pisos/pisosimagenes/scarredwomb.jpeg",
+    "sheol": "../pisos/pisosimagenes/sheol.jpeg",
+    "cathedral": "../pisos/pisosimagenes/cathedral.jpeg",
+    "chest": "../pisos/pisosimagenes/chest.jpeg",
+    "darkroom": "../pisos/pisosimagenes/darkroom.jpeg",
+    "void": "../pisos/pisosimagenes/void.jpeg",
+    "corpse": "../pisos/pisosimagenes/corpse.jpeg",
+    "mausoleum": "../pisos/pisosimagenes/mausoleum.jpeg",
+    "gehenna": "../pisos/pisosimagenes/gehenna.jpeg",
+    "downpour": "../pisos/pisosimagenes/Downpour.jpeg",
+    "dross": "../pisos/pisosimagenes/dross.jpeg",
+    "ashpit": "../pisos/pisosimagenes/ashpit.jpeg",
+    "mines": "../pisos/pisosimagenes/mines.jpeg",
+    "home": "../pisos/pisosimagenes/home.jpeg"
+  },
+
+  "informacionPisos": {
+    "basement": {
+      "nombre": "Basement",
+      "descripcion": "El punto de partida de Isaac. Un sótano húmedo y decadente infestado de insectos y criaturas simples. Es el piso de introducción donde los jugadores aprenden los mecanismos básicos del juego.",
+      "caracteristicas": [
+        "Enemigos básicos: Gapers, Flies, Pooters, Clotties",
+        "Jefes comunes: Monstro, Duke of Flies, Larry Jr., Gemini",
+        "Pool de objetos estándar del primer piso",
+        "Alta probabilidad de salas secretas",
+        "Puede contener salas de desafío con recompensas",
+        "Suelos de madera con manchas de sangre"
+      ],
+      "estrategias": "Aprovecha para farmear monedas y llaves. Busca salas secretas adyacentes a la sala del tesoro, sala del jefe o sala de rocas. Priorita objetos de daño para facilitar pisos posteriores."
+    },
+
+    "cellar": {
+      "nombre": "Cellar",
+      "descripcion": "Variante oscura del Basement con temática de bodega abandonada. Ambiente más lúgubre y enemigos ligeramente diferentes.",
+      "caracteristicas": [
+        "Enemigos únicos: Globins, Mullibooms, Hosts",
+        "Iluminación reducida y tonos sepia",
+        "Mismos jefes que Basement con variantes de comportamiento",
+        "Mayor probabilidad de salas con rocas explosivas",
+        "Suelos de tierra y barriles de madera"
+      ],
+      "estrategias": "Cuidado con los Mullibooms que explotan al contacto. Los Hosts requieren ataques desde ángulos específicos. Usa explosivos para limpiar grupos de enemigos."
+    },
+
+    "burningbasement": {
+      "nombre": "Burning Basement",
+      "descripcion": "Una versión infernal del Basement con llamas y cenizas. Los peligros ambientales añaden una capa adicional de dificultad.",
+      "caracteristicas": [
+        "Fuegos en el suelo que causan daño por contacto",
+        "Enemigos ardientes que dejan llamas al morir",
+        "Rocas carbonizadas que requieren múltiples golpes",
+        "Jefes con variantes de fuego (ej: The Husk)",
+        "Pool de objetos incluye más mejoras ofensivas"
+      ],
+      "estrategias": "Mantente en movimiento para evitar daño por fuego. Priorita enemigos pirotécnicos. Objetos como Pyromaniac o Fire Mind son extremadamente útiles aquí."
+    },
+
+    "caves": {
+      "nombre": "Caves",
+      "descripcion": "Sistema de cavernas rocosas con enemigos más resistentes. Marca el aumento significativo en dificultad.",
+      "caracteristicas": [
+        "Enemigos terrestres: Boneys, Guts, Polties",
+        "Jefes: Chub, C.H.A.D., Peep, The Carrion Queen",
+        "Introduce salas de piedra con patrones complejos",
+        "Mayor cantidad de salas con trampas",
+        "Rocas especiales que esconden recursos"
+      ],
+      "estrategias": "Aprende los patrones de ataque de los nuevos enemigos. Busca rocas marcadas para conseguir soul hearts. Considera guardar llaves para el siguiente piso."
+    },
+
+    "catacombs": {
+      "nombre": "Catacombs",
+      "descripcion": "Variante oscura de las Caves con temática de catacumba. Ambiente gótico y enemigos más agresivos.",
+      "caracteristicas": [
+        "Enemigos esqueléticos: Bony, Clotty, Maw",
+        "Iluminación tenue con antorchas",
+        "Mayor densidad de enemigos voladores",
+        "Suelos de piedra con símbolos ocultos",
+        "Alta probabilidad de salas malditas"
+      ],
+      "estrategias": "Los enemigos esqueléticos requieren múltiples golpes. Objetos de área son efectivos contra grupos. Usa bombas en rocas sospechosas para encontrar secretos."
+    },
+
+    "floadedcaves": {
+      "nombre": "Flooded Caves",
+      "descripcion": "Cavernas parcialmente inundadas con mecánicas de agua que afectan el movimiento.",
+      "caracteristicas": [
+        "Charcos de agua que ralentizan el movimiento",
+        "Enemigos acuáticos: Gurglings, Splashers",
+        "Rocas coralinas que ocultan pasajes",
+        "Jefes acuáticos como The Stain",
+        "Sonidos ambientales de agua goteando"
+      ],
+      "estrategias": "Objetos de vuelo ignoran los charcos. Cuidado con enemigos que se esconden bajo el agua. Las bombas son efectivas en áreas congestionadas."
+    },
+
+    "depths": {
+      "nombre": "Depths",
+      "descripcion": "Laberintos subterráneos oscuros con enemigos más peligrosos y mecánicas complejas.",
+      "caracteristicas": [
+        "Enemigos avanzados: Horfs, Gratts, Wills",
+        "Jefes: Mom, Mom's Heart, The Bloat",
+        "Primera aparición de salas con lava",
+        "Mayor cantidad de salas de elite",
+        "Introduce mecánicas de escaleras entre niveles"
+      ],
+      "estrategias": "Priorita supervivencia sobre todo. Objetos de defensa como Cube of Meat son valiosos. Aprende los patrones de los jefes nuevos."
+    },
+
+    "necropolois": {
+      "nombre": "Necropolis",
+      "descripcion": "Ciudad de los muertos con arquitectura egipcia y enemigos momificados.",
+      "caracteristicas": [
+        "Enemigos momia: Keeper, Mask of Infamy",
+        "Sarcófagos que reviven enemigos",
+        "Jefes: The Adversary, The Matriarch",
+        "Símbolos jeroglíficos en paredes",
+        "Trampas de pisones y proyectiles"
+      ],
+      "estrategias": "Destruye sarcófagos completamente. Objetos de control de multitudes son esenciales. Cuidado con los ataques telegrafiados de los jefes."
+    },
+
+    "dankdepths": {
+      "nombre": "Dank Depths",
+      "descripcion": "Variante fúngica de los Depths con setas gigantes y esporas venenosas.",
+      "caracteristicas": [
+        "Hongos que liberan esporas al morir",
+        "Suelos de micelio que cambian color",
+        "Enemigos fungicos: Mushrooms, Puffers",
+        "Rocas seta que dan recursos al destruirlas",
+        "Iluminación bioluminiscente"
+      ],
+      "estrategias": "Destruye hongos desde la distancia. Objetos de veneno son efectivos. Las rocas seta pueden curar en pinchazos."
+    },
+
+    "womb": {
+      "nombre": "Womb",
+      "descripcion": "Piso orgánico con paredes pulsantes y enemigos que infligen daño de contacto.",
+      "caracteristicas": [
+        "Daño de contacto en todos los enemigos",
+        "Suelos y paredes con texturas carnosas",
+        "Enemigos orgánicos: Horf, Gish, Teratoma",
+        "Jefes: Mom's Heart, It Lives!",
+        "Curse of the Blind aplicado automáticamente"
+      ],
+      "estrategias": "Evita el contacto directo. Priorita objetos de rango. Considera saltar objetos si tienes Curse of the Blind."
+    },
+
+    "scarredwomb": {
+      "nombre": "Scarred Womb",
+      "descripcion": "Variante traumatizada del Womb con cicatrices visibles y enemigos más agresivos.",
+      "caracteristicas": [
+        "Enemigos con mayor velocidad de ataque",
+        "Cicatrices sangrantes en las paredes",
+        "Mayor probabilidad de salas de maldición",
+        "Jefes con patrones de ataque modificados",
+        "Sonidos de latidos acelerados"
+      ],
+      "estrategias": "Enfoque agresivo pero calculado. Objetos de velocidad son cruciales. Aprende las variantes de patrones de jefes."
+    },
+
+    "sheol": {
+      "nombre": "Sheol",
+      "descripcion": "Reino infernal con temática demoníaca. Piso opcional para final alternativo.",
+      "caracteristicas": [
+        "Enemigos demoníacos: Imps, Fallen, Krampus",
+        "Suelos de carbón y lava fluyendo",
+        "Jefe final: Satan",
+        "Pool de objetos demoníacos exclusivos",
+        "Iluminación roja oscura"
+      ],
+      "estrategias": "Objetos de vuelo evitan la lava. Aprende los patrones de 3 fases de Satan. Objetos de demon deals son potenciados."
+    },
+
+    "cathedral": {
+      "nombre": "Cathedral",
+      "descripcion": "Reino celestial con arquitectura gótica y enemigos angelicales.",
+      "caracteristicas": [
+        "Enemigos sagrados: Uriel, Gabriel, Angels",
+        "Suelos de mármol con vitrales",
+        "Jefe final: Isaac",
+        "Pool de objetos angelicales exclusivos",
+        "Música coral de fondo"
+      ],
+      "estrategias": "Destruye estatuas angelicales para conseguir key pieces. Patrones de ataque basados en proyectiles sagrados. Objetos de fe son mejorados."
+    },
+
+    "chest": {
+      "nombre": "The Chest",
+      "descripcion": "Sala final repleta de cofres que contienen objetos. Requiere llave para acceder.",
+      "caracteristicas": [
+        "4 cofres dorados con objetos de calidad",
+        "Jefe final: ??? (Blue Baby)",
+        "Versión oscura del basement como fondo",
+        "Solo disponible después de vencer a Isaac",
+        "Posibilidad de Mega Satan como jefe secreto"
+      ],
+      "estrategias": "Asegura tener llaves antes de llegar. Objetos de carga de tears son vitales. Prepara para patrones de batalla caóticos."
+    },
+
+    "darkroom": {
+      "nombre": "The Dark Room",
+      "descripcion": "Contraparte oscura de The Chest. Piso final para rutas negativas.",
+      "caracteristicas": [
+        "Sala inicial con múltiples cofres trampa",
+        "Jefe final: The Lamb",
+        "Iluminación casi nula con silueta",
+        "Enemidos shadow y espectros",
+        "Pool de objetos del devil room"
+      ],
+      "estrategias": "Cuidado con los cofres mimicos. Objetos de visión nocturna son útiles. Aprende los patrones de ataques oscuros de The Lamb."
+    },
+
+    "void": {
+      "nombre": "The Void",
+      "descripcion": "Dimensión amorfa que existe entre espacios. Piso secreto con elementos aleatorios.",
+      "caracteristicas": [
+        "Combinación aleatoria de salas de otros pisos",
+        "Jefe final: Delirium",
+        "Fondo espacial con estrellas distorsionadas",
+        "Portales que teletransportan a diferentes salas",
+        "Puede aparecer después de cualquier jefe"
+      ],
+      "estrategias": "Flexibilidad absoluta en builds. Objetos de teletransportación controlada. Paciencia contra Delirium que cambia formas."
+    },
+
+    "corpse": {
+      "nombre": "Corpse",
+      "descripcion": "Piso temático de cadáver en descomposición. Exclusive del DLC Repentance.",
+      "caracteristicas": [
+        "Enemidos de carne putrefacta: Vis, Guts",
+        "Suelos orgánicos con huesos expuestos",
+        "Jefes: The Scourge, Chimera",
+        "Mecánica de gas venenoso en algunas salas",
+        "Pool de objetos relacionados con veneno"
+      ],
+      "estrategias": "Objetos de máscara antigas son útiles. Enfoque en daño a distancia. Cuidado con los ataques de área de los jefes."
+    },
+
+    "mausoleum": {
+      "nombre": "Mausoleum",
+      "descripcion": "Tumba ancestral con mecánicas de fantasmas y puertas selladas.",
+      "caracteristicas": [
+        "Enemidos fantasmales: Wraiths, Ghosts",
+        "Puertas que requieren llaves fantasmas",
+        "Jefes: The Heretic, The Pile",
+        "Sellos mágicos que otorgan bendiciones",
+        "Posibilidad de conseguir Knife Pieces"
+      ],
+      "estrategias": "Conserva llaves para puertas especiales. Objetos espirituales tienen sinergias. Aprende a esquivar ataques fantasmales."
+    },
+
+    "gehenna": {
+      "nombre": "Gehenna",
+      "descripcion": "Variante infernal del Mausoleum con fuego eterno y sacrificios.",
+      "caracteristicas": [
+        "Fuegos eternos que no se apagan",
+        "Enemidos de lava: Magmots, Lavals",
+        "Altares de sacrificio con recompensas",
+        "Jefes con mecánicas de fuego mejoradas",
+        "Pool de objetos de sacrificio"
+      ],
+      "estrategias": "Objetos de inmunidad al fuego son esenciales. Usa sacrificios estratégicamente. Cuidado con las explosiones de lava."
+    },
+
+    "downpour": {
+      "nombre": "Downpour",
+      "descripcion": "Piso de lluvia eterna con charcos que crean efectos únicos.",
+      "caracteristicas": [
+        "Charcos que ralentizan o electrocutan",
+        "Enemidos acuáticos: Drowned, Rainmakers",
+        "Jefes: The Rainmaker, The Thunderbird",
+        "Mecánica de reflejos en charcos",
+        "Pool de objetos eléctricos y acuáticos"
+      ],
+      "estrategias": "Aprovecha los charcos eléctricos. Objetos de control de agua son OP. Esquiva entre charcos para evitar daño."
+    },
+
+    "dross": {
+      "nombre": "Dross",
+      "descripcion": "Versión contaminada de Downpour con aguas tóxicas y residuos.",
+      "caracteristicas": [
+        "Charcos de veneno que dañan continuamente",
+        "Enemidos tóxicos: Sludges, Toxins",
+        "Residuos que bloquean pasillos",
+        "Jefes con ataques venenosos",
+        "Pool de objetos tóxicos"
+      ],
+      "estrategias": "Inmunidad al veneno es crucial. Limpia residuos con explosivos. Mantente en zonas secas durante combate."
+    },
+
+    "ashpit": {
+      "nombre": "Ashpit",
+      "descripcion": "Piso industrial con cenizas y maquinaria peligrosa.",
+      "caracteristicas": [
+        "Nubes de ceniza que reducen visibilidad",
+        "Trampas mecánicas: Pistones, Cintas transportadoras",
+        "Enemidos de carbón: Cinders, Ashers",
+        "Jefes: The Furnace, The Machine",
+        "Pool de objetos industriales"
+      ],
+      "estrategias": "Objetos de visión through smoke. Usa trampas en tu favor. Cuidado con los ataques de área de los jefes."
+    },
+
+    "mines": {
+      "nombre": "Mines",
+      "descripcion": "Minas abandonadas con vagonetas y explosivos.",
+      "caracteristicas": [
+        "Vagonetas que cruzan las salas",
+        "Barrels explosivos en patrones específicos",
+        "Enemidos mineros: Carts, Miners",
+        "Jefes: The Boor, The Vein",
+        "Mecánicas de dinamita y detonadores"
+      ],
+      "estrategias": "Usa vagonetas como armas. Objetos explosivos tienen sinergias. Aprende los tiempos de las vagonetas."
+    },
+
+    "home": {
+      "nombre": "Home",
+      "descripcion": "La casa de Isaac. Piso narrativo con mecánicas únicas y combates emocionales.",
+      "caracteristicas": [
+        "Sala de TV con objeto activo especial",
+        "Enemidos: Representaciones de traumas",
+        "Jefe final: Mother (The Witness)",
+        "Mecánicas de memoria y recuerdos",
+        "Pool de objetos personales de Isaac"
+      ],
+      "estrategias": "Domina el uso del objeto activo. Enfrenta tus traumas con patrones específicos. Paciencia en la batalla final contra Mother."
+    }
+  }
+}
