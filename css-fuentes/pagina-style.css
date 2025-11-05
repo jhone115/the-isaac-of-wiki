@@ -278,7 +278,7 @@
 
         body {
             font-family: 'mifuente', sans-serif;
-            background: url(pisos/pisosimagenes/basement.jpeg);
+            background: url(../pisos/pisosimagenes/basement.jpeg);
             background-size: cover;
             color: rgb(9, 0, 179);
             line-height: 1.6;
