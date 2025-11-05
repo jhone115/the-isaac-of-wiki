@@ -325,7 +325,7 @@
   },
   "tainted_eden": {
     "nombre": "Tainted eden",
-    "imagen": "personajesimagenes/t edeb.png",
+    "imagen": "personajesimagenes/t eden.png",
     "vida": [
       {"tipo": "vacio", "cantidad": 0}
     ],
