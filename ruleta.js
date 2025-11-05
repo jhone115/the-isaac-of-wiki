@@ -69,7 +69,7 @@ function crearElementoPersonaje(personaje, id) {
     return `
         <div class="col-md-4">
             <div class="personaje-card">
-                <a href="the-isaac-of-wiki/personajes/personaje.html?id=${id}" style="text-decoration: none;">
+                <a href="personajes/personaje.html?id=${id}" style="text-decoration: none;">
                     <div class="personaje-imagen">
                         ${imagenHTML}
                     </div>
