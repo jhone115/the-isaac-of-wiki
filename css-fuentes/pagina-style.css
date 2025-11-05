@@ -17,7 +17,105 @@
     height: auto;
     border-radius: 10px;
 }
+/* Estilos específicos para la ruleta */
+.ruleta-container {
+    background: #00000078;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+}
 
+.personaje-card {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+    height: 100%;
+    border: 2px solid #555;
+}
+
+.personaje-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+    border-color: #b0dcdd;
+}
+
+.personaje-imagen {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.personaje-imagen img {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 5px;
+    border: 1px solid #444;
+}
+
+.personaje-nombre {
+    color: #b0dcdd;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: 'titulos','sans-serif';
+    font-size: 1.2rem;
+}
+
+.personaje-vida {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.personaje-vida img {
+    width: 20px;
+    height: 20px;
+}
+
+.personaje-descripcion {
+    text-align: center;
+    color: #cccccc;
+    font-style: italic;
+}
+
+.btn-ruleta {
+    display: block;
+    margin: 20px auto;
+    background-color: #3b241b;
+    border: 2px solid #b0dcdd;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: #b0dcdd;
+    font-family: 'titulos','sans-serif';
+    transition: all 0.3s;
+}
+
+.btn-ruleta:hover {
+    background-color: #b0dcdd;
+    color: #3b241b;
+    transform: scale(1.05);
+}
+
+.ruleta-titulo {
+    text-align: center;
+    color: #b0dcdd;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    font-family: 'titulos','sans-serif';
+    font-size: 2rem;
+}
+
+.ruleta-subtitulo {
+    text-align: center;
+    color: #cccccc;
+    margin-bottom: 20px;
+    font-style: italic;
+}
 /* Para personajes con dos imágenes, hacerlas más pequeñas para que quepan */
 #imagen img:first-child:nth-last-child(2),
 #imagen img:first-child:nth-last-child(2) ~ img {
