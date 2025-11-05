@@ -63,7 +63,7 @@ function obtenerPersonajesAleatorios(personajes, cantidad = 3) {
 // Función para crear el HTML de un personaje
 function crearElementoPersonaje(personaje, id) {
     const imagenHTML = Array.isArray(personaje.imagen) 
-        ? personaje.imagen.map(img => `<img src="${img}" alt="personajes/personajesimagenes/${personaje.nombre}">`).join('')
+        ? personaje.imagen.map(img => `<img src="personajes/personajesimagenes${img}" alt="/${personaje.nombre}">`).join('')
         : `<img src="${personaje.imagen}" alt="${personaje.nombre}">`;
     
     return `
