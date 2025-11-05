@@ -569,7 +569,7 @@
     "imagen": ["personajesimagenes/t jacob.png",
     "personajesimagenes/t esau.png"],
     "vida": [
-      {"tipo": "azul", "cantidad": 3}
+      {"tipo": "rojo", "cantidad": 3}
     ],
     "daño": 3.50,
     "lagrimas": 2.73,
@@ -579,7 +579,7 @@
     "suerte": 0,
     "consumibles": [{"tipo": "", "cantidad": 0}],
     "objetos": "collectibles_722_animasola",
-    "descripcioncorta": "La versión corrompida de bethany.",
+    "descripcioncorta": "La versión corrompida de jacob y esau.",
     "descripcionlarga": "Tainted Jacob y Esau es el décimo séptimo personaje tainted del juego, es un personaje normal pero al antes de que pase el primer minuto saldrá Dark Esau, es una sombra que te perseguirá para intentar darte y transformarte a una especie de Tainted The Lost (tendrás las mismas habilidades menos el better items y la holy).<br>Dark Esau hace daño por contacto a los enemigos y también puede quemar, se te quita el efecto de Tainted The Lost cuando cambias de piso, puedes tener pacto de demonio gratis si estas en esta forma. Empieza con el ítem Anima Sola<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_722_animasola.png' width='20' alt='anima sola'> que te permite retener a Dark Esau durante unos segundos con unas cadenas.<br>Dark Esau es inmortal, no lo puedes eliminar de ninguna manera. a menos que lo borres con la goma<img src='/the-isaac-of-wiki/objetos/objetosimg/collectibles_638_eraser.png' width='20' alt='the negative'>"
 }
 }

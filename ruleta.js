@@ -39,7 +39,7 @@ function generarCorazones(vida) {
     let corazones = "";
     vida.forEach(obj => {
         for (let i = 0; i < obj.cantidad; i++) {
-            corazones += `<img src="../objetos/consumibles/corazon ${obj.tipo}.png" alt="corazón ${obj.tipo}" width="20">`;
+            corazones += `<img src="objetos/consumibles/corazon ${obj.tipo}.png" alt="corazón ${obj.tipo}" width="20">`;
         }
     });
     return corazones;
@@ -63,13 +63,13 @@ function obtenerPersonajesAleatorios(personajes, cantidad = 3) {
 // Función para crear el HTML de un personaje
 function crearElementoPersonaje(personaje, id) {
     const imagenHTML = Array.isArray(personaje.imagen) 
-        ? personaje.imagen.map(img => `<img src="${img}" alt="${personaje.nombre}">`).join('')
+        ? personaje.imagen.map(img => `<img src="${img}" alt="personajes/${personaje.nombre}">`).join('')
         : `<img src="${personaje.imagen}" alt="${personaje.nombre}">`;
     
     return `
         <div class="col-md-4">
             <div class="personaje-card">
-                <a href="personaje.html?id=${id}" style="text-decoration: none;">
+                <a href="/personajes/personaje.html?id=${id}" style="text-decoration: none;">
                     <div class="personaje-imagen">
                         ${imagenHTML}
                     </div>
