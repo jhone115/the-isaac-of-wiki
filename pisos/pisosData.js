@@ -3,7 +3,7 @@ let pisosData = null;
 
 async function cargarDatosPisos() {
     try {
-        const response = await fetch('pisos/pisosData.json');
+        const response = await fetch('pisosData.json');
         if (!response.ok) {
             throw new Error('No se pudo cargar el JSON');
         }
