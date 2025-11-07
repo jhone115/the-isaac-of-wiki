@@ -59,12 +59,7 @@ class SearchIndex {
                 if (detalle) {
                     // Múltiples formatos posibles para las imágenes
                     const posiblesImagenes = [
-                        `${this.basePath}objetos/objetosimg/collectibles_${id.padStart(3, '0')}_${nombreKey}.png`,
-                        `${this.basePath}objetos/objetosimg/collectibles_${id}_${nombreKey}.png`,
-                        `${this.basePath}objetos/objetosimg/${nombreKey}.png`,
-                        `${this.basePath}objetos/objetosimg/collectibles_${id.padStart(3, '0')}.png`,
-                        `${this.basePath}objetos/objetosimg/collectibles_${id}.png`,
-                        `${this.basePath}objetos/objetosimg/${id}_${nombreKey}.png`
+                        `${this.basePath}objetos/objetosimg/collectibles_${id}_${nombreKey}.png`
                     ];
 
                     // Usar el formato completo para el ID en la URL
