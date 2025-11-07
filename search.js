@@ -1,16 +1,14 @@
-// search.js - Lógica principal de búsqueda
+// search.js - Lógica principal de búsqueda (MODIFICADO)
 class SearchManager {
     constructor() {
         this.config = {
             minQueryLength: 2,
-            maxResults: 20,
-            debounceTime: 300
+            maxResults: 20
         };
         
         this.state = {
             currentQuery: '',
-            isSearching: false,
-            lastSearchTime: 0
+            isSearching: false
         };
         
         this.modal = null;
@@ -18,7 +16,6 @@ class SearchManager {
     }
 
     initialize() {
-        // Esperar a que el DOM esté listo
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => this.setupEventListeners());
         } else {
@@ -29,32 +26,39 @@ class SearchManager {
     setupEventListeners() {
         const searchForm = document.getElementById('search-form');
         const searchInput = document.getElementById('search-input');
+        const searchButton = document.querySelector('#search-form button[type="submit"]');
 
         if (!searchForm || !searchInput) {
             console.error('Elementos de búsqueda no encontrados');
             return;
         }
 
-        // Evento de envío del formulario
+        // SOLUCIÓN: Solo buscar al enviar el formulario (Enter o clic en botón)
         searchForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            this.performSearch(searchInput.value.trim());
-        });
-
-        // Búsqueda en tiempo real con debounce
-        let debounceTimer;
-        searchInput.addEventListener('input', (e) => {
-            clearTimeout(debounceTimer);
-            const query = e.target.value.trim();
-            
+            const query = searchInput.value.trim();
             if (query.length >= this.config.minQueryLength) {
-                debounceTimer = setTimeout(() => {
-                    this.performSearch(query);
-                }, this.config.debounceTime);
-            } else if (query.length === 0) {
-                this.clearSearchResults();
+                this.performSearch(query);
+            } else {
+                this.showNoResults("Escribe al menos 2 caracteres para buscar");
             }
         });
+
+        // Opcional: También buscar al hacer clic en el botón (por si acaso)
+        if (searchButton) {
+            searchButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                const query = searchInput.value.trim();
+                if (query.length >= this.config.minQueryLength) {
+                    this.performSearch(query);
+                } else {
+                    this.showNoResults("Escribe al menos 2 caracteres para buscar");
+                }
+            });
+        }
+
+        // ELIMINADO: El evento de input que causaba la búsqueda instantánea
+        // searchInput.addEventListener('input', (e) => { ... });
 
         // Inicializar modal de Bootstrap
         this.initializeModal();
@@ -70,31 +74,37 @@ class SearchManager {
                 const searchInput = document.getElementById('search-input');
                 if (searchInput) searchInput.focus();
             });
+
+            // Limpiar resultados cuando se cierra el modal
+            modalElement.addEventListener('hidden.bs.modal', () => {
+                this.clearSearchResults();
+            });
         }
     }
 
     async performSearch(query) {
         if (!query || query.length < this.config.minQueryLength) {
-            this.clearSearchResults();
-            return;
-        }
-
-        // Evitar búsquedas duplicadas rápidas
-        const now = Date.now();
-        if (now - this.state.lastSearchTime < 200 && query === this.state.currentQuery) {
+            this.showNoResults("Escribe al menos 2 caracteres para buscar");
             return;
         }
 
         this.state.currentQuery = query;
-        this.state.lastSearchTime = now;
         this.state.isSearching = true;
 
         this.showLoadingState();
 
-        // Esperar un poco para evitar flickering en búsquedas rápidas
-        await new Promise(resolve => setTimeout(resolve, 100));
-
         try {
+            // Esperar a que los datos estén cargados
+            if (!searchIndex.isLoaded) {
+                await new Promise(resolve => {
+                    const checkLoaded = () => {
+                        if (searchIndex.isLoaded) resolve();
+                        else setTimeout(checkLoaded, 100);
+                    };
+                    checkLoaded();
+                });
+            }
+
             const results = searchIndex.search(query.toLowerCase());
             this.displaySearchResults(results, query);
         } catch (error) {
@@ -161,7 +171,7 @@ class SearchManager {
                  data-ruta="${item.ruta}">
                 <img src="${item.imagen}" alt="${item.nombre}" 
                      class="search-item-image" 
-                     onerror="this.src='favicon.png'; this.onerror=null;">
+                     onerror="this.onerror=null; this.src='./favicon.png';">
                 <div class="search-item-content">
                     <div class="search-item-title">${highlightedName}</div>
                     <div class="search-item-description">${highlightedDesc}</div>
@@ -227,14 +237,14 @@ class SearchManager {
         this.showModal();
     }
 
-    showNoResults(query) {
+    showNoResults(message = "No se encontraron resultados") {
         const resultsBody = document.getElementById('search-results-body');
         if (resultsBody) {
             resultsBody.innerHTML = `
                 <div class="search-no-results">
                     <i>🔍</i>
-                    <h5>No se encontraron resultados</h5>
-                    <p>No hay resultados para "${query}". Intenta con otros términos.</p>
+                    <h5>${message}</h5>
+                    <p>${message.includes("2 caracteres") ? "" : `No hay resultados para "${this.state.currentQuery}". Intenta con otros términos.`}</p>
                     <small class="text-muted">Busca por nombre de objeto, personaje o piso</small>
                 </div>
             `;

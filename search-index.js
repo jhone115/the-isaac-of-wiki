@@ -1,4 +1,4 @@
-// search-index.js - Carga dinámica de datos desde archivos JSON
+// search-index.js - Carga dinámica de datos desde archivos JSON (MEJORADO)
 class SearchIndex {
     constructor() {
         this.data = {
@@ -7,6 +7,19 @@ class SearchIndex {
             pisos: {}
         };
         this.isLoaded = false;
+        this.basePath = this.detectBasePath();
+    }
+
+    detectBasePath() {
+        // Detectar si estamos en GitHub Pages o local
+        const path = window.location.pathname;
+        if (path.includes('/the-isaac-of-wiki/')) {
+            return '/the-isaac-of-wiki/';
+        } else if (path.includes('/docs/')) {
+            return '/docs/';
+        } else {
+            return './';
+        }
     }
 
     async loadAllData() {
@@ -25,21 +38,38 @@ class SearchIndex {
 
     async loadObjetos() {
         try {
-            const response = await fetch('objetos/objetosData.json');
+            const response = await fetch(`${this.basePath}objetos/objetosData.json`);
             const data = await response.json();
             
             // Procesar objetos
             for (const [id, nombreKey] of Object.entries(data.nombres)) {
                 const detalle = data.detallesObjetos[nombreKey];
                 if (detalle) {
+                    // Múltiples formatos posibles para las imágenes
+                    const posiblesImagenes = [
+                        // Formato con ID de 3 dígitos y nombre
+                        `${this.basePath}objetos/objetosimg/collectibles_${id.padStart(3, '0')}_${nombreKey}.png`,
+                        // Formato con ID tal cual y nombre
+                        `${this.basePath}objetos/objetosimg/collectibles_${id}_${nombreKey}.png`,
+                        // Solo el nombre
+                        `${this.basePath}objetos/objetosimg/${nombreKey}.png`,
+                        // Solo el ID con 3 dígitos
+                        `${this.basePath}objetos/objetosimg/collectibles_${id.padStart(3, '0')}.png`,
+                        // Solo el ID tal cual
+                        `${this.basePath}objetos/objetosimg/collectibles_${id}.png`,
+                        // Formato alternativo común
+                        `${this.basePath}objetos/objetosimg/${id}_${nombreKey}.png`
+                    ];
+
                     this.data.objetos[nombreKey] = {
                         id: nombreKey,
                         nombre: detalle.nombre,
                         descripcion: detalle.descripcion,
                         tipo: detalle.tipo || 'Pasivo',
-                        imagen: `objetos/objetosimg/collectibles_${id.padStart(3, '0')}_${nombreKey}.png`,
+                        imagen: posiblesImagenes[0],
+                        imagenesAlternativas: posiblesImagenes,
                         categoria: 'objeto',
-                        ruta: `objetos/objeto.html?id=${nombreKey}`
+                        ruta: `${this.basePath}objetos/objeto.html?id=${nombreKey}`
                     };
                 }
             }
@@ -50,18 +80,25 @@ class SearchIndex {
 
     async loadPersonajes() {
         try {
-            const response = await fetch('personajes/personajes_data.json');
+            const response = await fetch(`${this.basePath}personajes/personajes_data.json`);
             const data = await response.json();
             
             // Procesar personajes
             for (const [key, personaje] of Object.entries(data)) {
+                let imagenPrincipal;
+                if (Array.isArray(personaje.imagen)) {
+                    imagenPrincipal = `${this.basePath}${personaje.imagen[0]}`;
+                } else {
+                    imagenPrincipal = `${this.basePath}${personaje.imagen}`;
+                }
+
                 this.data.personajes[key] = {
                     id: key,
                     nombre: personaje.nombre,
                     descripcion: personaje.descripcioncorta,
-                    imagen: Array.isArray(personaje.imagen) ? personaje.imagen[0] : personaje.imagen,
+                    imagen: imagenPrincipal,
                     categoria: 'personaje',
-                    ruta: `personajes/personaje.html?id=${key}`
+                    ruta: `${this.basePath}personajes/personaje.html?id=${key}`
                 };
             }
         } catch (error) {
@@ -71,18 +108,19 @@ class SearchIndex {
 
     async loadPisos() {
         try {
-            const response = await fetch('pisos/piso.Data.json');
+            const response = await fetch(`${this.basePath}pisos/piso.Data.json`);
             const data = await response.json();
             
             // Procesar pisos
             for (const [key, piso] of Object.entries(data.informacionPisos)) {
+                const fondo = data.fondosPisos[key];
                 this.data.pisos[key] = {
                     id: key,
                     nombre: piso.nombre,
                     descripcion: piso.descripcion,
-                    imagen: data.fondosPisos[key] || 'pisos/pisosimagenes/basement.jpeg',
+                    imagen: fondo ? `${this.basePath}${fondo}` : `${this.basePath}pisos/pisosimagenes/basement.jpeg`,
                     categoria: 'piso',
-                    ruta: `pisos/piso.html?id=${key}`
+                    ruta: `${this.basePath}pisos/piso.html?id=${key}`
                 };
             }
         } catch (error) {
