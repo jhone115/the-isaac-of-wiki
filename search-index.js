@@ -110,26 +110,46 @@ class SearchIndex {
     }
 
     async loadPisos() {
-        try {
-            const response = await fetch(`${this.basePath}pisos/piso.Data.json`);
-            const data = await response.json();
-            
-            // Procesar pisos
-            for (const [key, piso] of Object.entries(data.informacionPisos)) {
-                const fondo = data.fondosPisos[key];
-                this.data.pisos[key] = {
-                    id: key,
-                    nombre: piso.nombre,
-                    descripcion: piso.descripcion,
-                    imagen: fondo ? `${this.basePath}${fondo}` : `${this.basePath}pisos/pisosimagenes/basement.jpeg`,
-                    categoria: 'piso',
-                    ruta: `${this.basePath}pisos/piso.html?id=${key}`
-                };
-            }
-        } catch (error) {
-            console.error('Error cargando pisos:', error);
+    try {
+        console.log('Cargando datos de pisos...');
+        const response = await fetch(`${this.basePath}pisos/piso.Data.json`);
+        
+        if (!response.ok) {
+            throw new Error(`Error HTTP: ${response.status}`);
         }
+        
+        const data = await response.json();
+        console.log('Datos de pisos cargados:', data);
+        
+        // Verificar la estructura del JSON
+        if (!data.informacionPisos) {
+            console.error('El JSON de pisos no tiene la estructura esperada (informacionPisos)');
+            return;
+        }
+        
+        // Procesar pisos
+        let pisosCargados = 0;
+        for (const [key, piso] of Object.entries(data.informacionPisos)) {
+            const fondo = data.fondosPisos ? data.fondosPisos[key] : null;
+            
+            this.data.pisos[key] = {
+                id: key,
+                nombre: piso.nombre,
+                descripcion: piso.descripcion,
+                imagen: fondo ? `${this.basePath}${fondo}` : `${this.basePath}pisos/pisosimagenes/basement.jpeg`,
+                categoria: 'piso',
+                ruta: `${this.basePath}pisos/piso.html?id=${key}`
+            };
+            pisosCargados++;
+        }
+        
+        console.log(`Pisos cargados exitosamente: ${pisosCargados}`);
+        console.log('Ejemplos de pisos cargados:', Object.keys(this.data.pisos).slice(0, 3));
+        
+    } catch (error) {
+        console.error('Error cargando pisos:', error);
     }
+}
 
     search(query) {
         if (!query || query.length < 2) {
