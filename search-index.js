@@ -1,115 +1,153 @@
-
-function normalizeKey(str) {
-    return String(str)
-        .trim()
-        .toLowerCase()
-        .replace(/\s+/g, "")
-        .replace(/[^a-z0-9_]/g, "");
-}
-
-const searchIndex = {
-    pisos: [],
-    personajes: [],
-    objetos: []
-};
-
-function initializeSearchIndex() {
-    console.log("Inicializando índice de búsqueda...");
-
-    const pisosData = {
-        'basement': { nombre: "Basement", descripcion: "Primer piso del juego. Enemigos simples y ambiente doméstico." },
-        'cellar': { nombre: "Cellar", descripcion: "Variante del sótano con ambiente más oscuro y húmedo." },
-        'burningbasement': { nombre: "Burning Basement", descripcion: "Variante infernal del sótano con fuego y enemigos ardientes." },
-        'caves': { nombre: "Caves", descripcion: "Segundo conjunto de pisos. Más enemigos voladores y peligros ambientales." },
-        'catacombs': { nombre: "Catacombs", descripcion: "Variante de las cuevas con ambiente más lúgubre y esqueletos." },
-        'floadedcaves': { nombre: "Flooded Caves", descripcion: "Variante acuática de las cuevas con agua y enemigos relacionados." },
-        'depths': { nombre: "Depths", descripcion: "Tercer conjunto de pisos. Introduce enemigos más agresivos." },
-        'necropolois': { nombre: "Necropolis", descripcion: "Variante de las profundidades con temática de necrófagos." },
-        'dankdepths': { nombre: "Dank Depths", descripcion: "Variante oscura y húmeda de las profundidades." },
-        'womb': { nombre: "Womb", descripcion: "El interior del cuerpo de la madre. Enemigos causan daño de corazón completo." },
-        'scarredwomb': { nombre: "Scarred Womb", descripcion: "Variante más difícil del útero con enemigos más fuertes." },
-        'sheol': { nombre: "Sheol", descripcion: "Piso final alternativo donde enfrentas a Satanás." },
-        'cathedral': { nombre: "Cathedral", descripcion: "Piso final alternativo donde enfrentas a Isaac." },
-        'chest': { nombre: "The Chest", descripcion: "Piso de final verdadero contra Blue Baby (???)." },
-        'darkroom': { nombre: "The Dark Room", descripcion: "Piso de final verdadero contra The Lamb." },
-        'void': { nombre: "The Void", descripcion: "Piso final donde se enfrenta a Delirium." },
-        'corpse': { nombre: "Corpse", descripcion: "Piso introducido en Repentance, con ambiente grotesco y el jefe Mother." },
-        'mausoleum': { nombre: "Mausoleum", descripcion: "Parte de la ruta alternativa con nuevos desafíos." },
-        'gehenna': { nombre: "Gehenna", descripcion: "Variante infernal de la ruta alternativa." },
-        'downpour': { nombre: "Downpour", descripcion: "Piso acuático de la ruta alternativa." },
-        'dross': { nombre: "Dross", descripcion: "Variante corrupta de Downpour." },
-        'ashpit': { nombre: "Ashpit", descripcion: "Piso con cenizas y fuego de la ruta alternativa." },
-        'mines': { nombre: "Mines", descripcion: "Piso minero de la ruta alternativa." },
-        'home': { nombre: "Home", descripcion: "La casa de Isaac, piso final especial." }
-    };
-
-    Object.keys(pisosData).forEach(key => {
-        searchIndex.pisos.push({
-            id: key,
-            title: pisosData[key].nombre,
-            description: pisosData[key].descripcion,
-            url: `pisos/piso.html?piso=${key}`,
-            image: `pisos/pisosimagenes/${key}.jpeg`,
-            category: "pisos"
-        });
-    });
-
-    if (typeof data !== 'undefined') {
-        Object.keys(data).forEach(key => {
-            const personaje = data[key];
-            searchIndex.personajes.push({
-                id: key,
-                title: personaje.nombre,
-                description: personaje.descripcioncorta,
-                url: `personajes/personaje.html?id=${key}`,
-                image: personaje.imagen,
-                category: "personajes"
-            });
-        });
-        console.log(`Cargados ${searchIndex.personajes.length} personajes`);
-    } else {
-        console.log("Datos de personajes no disponibles aún");
+// search-index.js - Carga dinámica de datos desde archivos JSON
+class SearchIndex {
+    constructor() {
+        this.data = {
+            objetos: {},
+            personajes: {},
+            pisos: {}
+        };
+        this.isLoaded = false;
     }
 
-    if (typeof nombres !== 'undefined') {
-        Object.keys(nombres).forEach(id => {
-            const nombreObjeto = nombres[id];
-            const keyNormalized = normalizeKey(nombreObjeto);
-            const detalles = typeof detallesObjetos !== 'undefined' ? detallesObjetos[keyNormalized] : null;
+    async loadAllData() {
+        try {
+            await Promise.all([
+                this.loadObjetos(),
+                this.loadPersonajes(),
+                this.loadPisos()
+            ]);
+            this.isLoaded = true;
+            console.log('Todos los datos de búsqueda cargados correctamente');
+        } catch (error) {
+            console.error('Error cargando datos de búsqueda:', error);
+        }
+    }
+
+    async loadObjetos() {
+        try {
+            const response = await fetch('objetos/objetosData.json');
+            const data = await response.json();
             
-            searchIndex.objetos.push({
-                id: id,
-                title: nombreObjeto,
-                description: detalles ? detalles.descripcion : "Objeto de The Binding of Isaac",
-                url: `objetos/objeto.html?objeto=${id}`,
-                image: `objetos/objetosimg/collectibles_${id}_${keyNormalized}.png`,
-                category: "objetos"
-            });
+            // Procesar objetos
+            for (const [id, nombreKey] of Object.entries(data.nombres)) {
+                const detalle = data.detallesObjetos[nombreKey];
+                if (detalle) {
+                    this.data.objetos[nombreKey] = {
+                        id: nombreKey,
+                        nombre: detalle.nombre,
+                        descripcion: detalle.descripcion,
+                        tipo: detalle.tipo || 'Pasivo',
+                        imagen: `objetos/objetosimg/collectibles_${id.padStart(3, '0')}_${nombreKey}.png`,
+                        categoria: 'objeto',
+                        ruta: `objetos/objeto.html?id=${nombreKey}`
+                    };
+                }
+            }
+        } catch (error) {
+            console.error('Error cargando objetos:', error);
+        }
+    }
+
+    async loadPersonajes() {
+        try {
+            const response = await fetch('personajes/personajes_data.json');
+            const data = await response.json();
+            
+            // Procesar personajes
+            for (const [key, personaje] of Object.entries(data)) {
+                this.data.personajes[key] = {
+                    id: key,
+                    nombre: personaje.nombre,
+                    descripcion: personaje.descripcioncorta,
+                    imagen: Array.isArray(personaje.imagen) ? personaje.imagen[0] : personaje.imagen,
+                    categoria: 'personaje',
+                    ruta: `personajes/personaje.html?id=${key}`
+                };
+            }
+        } catch (error) {
+            console.error('Error cargando personajes:', error);
+        }
+    }
+
+    async loadPisos() {
+        try {
+            const response = await fetch('pisos/piso.Data.json');
+            const data = await response.json();
+            
+            // Procesar pisos
+            for (const [key, piso] of Object.entries(data.informacionPisos)) {
+                this.data.pisos[key] = {
+                    id: key,
+                    nombre: piso.nombre,
+                    descripcion: piso.descripcion,
+                    imagen: data.fondosPisos[key] || 'pisos/pisosimagenes/basement.jpeg',
+                    categoria: 'piso',
+                    ruta: `pisos/piso.html?id=${key}`
+                };
+            }
+        } catch (error) {
+            console.error('Error cargando pisos:', error);
+        }
+    }
+
+    search(query) {
+        if (!query || query.length < 2) {
+            return { objetos: [], personajes: [], pisos: [] };
+        }
+
+        const results = {
+            objetos: [],
+            personajes: [],
+            pisos: []
+        };
+
+        const searchTerm = query.toLowerCase();
+
+        // Buscar en objetos
+        Object.values(this.data.objetos).forEach(objeto => {
+            if (this.matches(objeto, searchTerm)) {
+                results.objetos.push(objeto);
+            }
         });
-        console.log(`Cargados ${searchIndex.objetos.length} objetos`);
-    } else {
-        console.log("Datos de objetos no disponibles aún");
+
+        // Buscar en personajes
+        Object.values(this.data.personajes).forEach(personaje => {
+            if (this.matches(personaje, searchTerm)) {
+                results.personajes.push(personaje);
+            }
+        });
+
+        // Buscar en pisos
+        Object.values(this.data.pisos).forEach(piso => {
+            if (this.matches(piso, searchTerm)) {
+                results.pisos.push(piso);
+            }
+        });
+
+        return results;
     }
 
-    console.log("Índice de búsqueda inicializado:", {
-        pisos: searchIndex.pisos.length,
-        personajes: searchIndex.personajes.length,
-        objetos: searchIndex.objetos.length
-    });
-}
+    matches(item, searchTerm) {
+        const searchFields = [
+            item.nombre,
+            item.descripcion,
+            item.tipo
+        ].filter(Boolean);
 
-function checkAndInitialize() {
-    const personajesReady = typeof data !== 'undefined';
-    const objetosReady = typeof nombres !== 'undefined';
-    
-    if (personajesReady && objetosReady) {
-        initializeSearchIndex();
-    } else {
-        console.log("Esperando datos...");
-        setTimeout(checkAndInitialize, 500);
+        return searchFields.some(field => 
+            field.toLowerCase().includes(searchTerm)
+        );
+    }
+
+    getItemById(type, id) {
+        return this.data[type]?.[id] || null;
     }
 }
 
+// Crear instancia global
+const searchIndex = new SearchIndex();
+
+// Cargar datos cuando esté listo el DOM
 document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(checkAndInitialize, 100);
+    searchIndex.loadAllData();
 });
