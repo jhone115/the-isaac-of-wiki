@@ -125,7 +125,7 @@ class SearchIndex {
 
     async loadPisos() {
         try {
-            const url = `${this.basePath}pisos/piso.Data.json`;
+            const url = `${this.basePath}pisos/pisosData.json`;
             console.log('Cargando pisos desde:', url);
             
             const response = await fetch(url);
