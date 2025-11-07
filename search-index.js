@@ -37,46 +37,49 @@ class SearchIndex {
     }
 
     async loadObjetos() {
-        try {
-            const response = await fetch(`${this.basePath}objetos/objetosData.json`);
-            const data = await response.json();
-            
-            // Procesar objetos
-            for (const [id, nombreKey] of Object.entries(data.nombres)) {
-                const detalle = data.detallesObjetos[nombreKey];
-                if (detalle) {
-                    // Múltiples formatos posibles para las imágenes
-                    const posiblesImagenes = [
-                        // Formato con ID de 3 dígitos y nombre
-                        `${this.basePath}objetos/objetosimg/collectibles_${id.padStart(3, '0')}_${nombreKey}.png`,
-                        // Formato con ID tal cual y nombre
-                        `${this.basePath}objetos/objetosimg/collectibles_${id}_${nombreKey}.png`,
-                        // Solo el nombre
-                        `${this.basePath}objetos/objetosimg/${nombreKey}.png`,
-                        // Solo el ID con 3 dígitos
-                        `${this.basePath}objetos/objetosimg/collectibles_${id.padStart(3, '0')}.png`,
-                        // Solo el ID tal cual
-                        `${this.basePath}objetos/objetosimg/collectibles_${id}.png`,
-                        // Formato alternativo común
-                        `${this.basePath}objetos/objetosimg/${id}_${nombreKey}.png`
-                    ];
+    try {
+        const response = await fetch(`${this.basePath}objetos/objetosData.json`);
+        const data = await response.json();
+        
+        // Procesar objetos
+        for (const [id, nombreKey] of Object.entries(data.nombres)) {
+            const detalle = data.detallesObjetos[nombreKey];
+            if (detalle) {
+                // Múltiples formatos posibles para las imágenes
+                const posiblesImagenes = [
+                    // Formato con ID de 3 dígitos y nombre
+                    `${this.basePath}objetos/objetosimg/collectibles_${id.padStart(3, '0')}_${nombreKey}.png`,
+                    // Formato con ID tal cual y nombre
+                    `${this.basePath}objetos/objetosimg/collectibles_${id}_${nombreKey}.png`,
+                    // Solo el nombre
+                    `${this.basePath}objetos/objetosimg/${nombreKey}.png`,
+                    // Solo el ID con 3 dígitos
+                    `${this.basePath}objetos/objetosimg/collectibles_${id.padStart(3, '0')}.png`,
+                    // Solo el ID tal cual
+                    `${this.basePath}objetos/objetosimg/collectibles_${id}.png`,
+                    // Formato alternativo común
+                    `${this.basePath}objetos/objetosimg/${id}_${nombreKey}.png`
+                ];
 
-                    this.data.objetos[nombreKey] = {
-                        id: nombreKey,
-                        nombre: detalle.nombre,
-                        descripcion: detalle.descripcion,
-                        tipo: detalle.tipo || 'Pasivo',
-                        imagen: posiblesImagenes[0],
-                        imagenesAlternativas: posiblesImagenes,
-                        categoria: 'objeto',
-                        ruta: `${this.basePath}objetos/objeto.html?id=${nombreKey}`
-                    };
-                }
+                // CORREGIDO: Usar el formato completo para el ID en la URL
+                const objetoId = `collectibles_${id}_${nombreKey}`;
+                
+                this.data.objetos[nombreKey] = {
+                    id: objetoId, // Cambiado: usar el formato completo como ID
+                    nombre: detalle.nombre,
+                    descripcion: detalle.descripcion,
+                    tipo: detalle.tipo || 'Pasivo',
+                    imagen: posiblesImagenes[0],
+                    imagenesAlternativas: posiblesImagenes,
+                    categoria: 'objeto',
+                    ruta: `${this.basePath}objetos/objeto.html?id=${objetoId}` // CORREGIDO
+                };
             }
-        } catch (error) {
-            console.error('Error cargando objetos:', error);
         }
+    } catch (error) {
+        console.error('Error cargando objetos:', error);
     }
+}
 
     async loadPersonajes() {
         try {
