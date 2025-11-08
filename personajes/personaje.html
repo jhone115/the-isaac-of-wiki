@@ -52,9 +52,9 @@
                     </li>
                 </ul>
                 <form class="d-flex" role="search" id="search-form">
-                    <input class="form-control me-2" type="search" placeholder="Buscar pisos, personajes, objetos..." aria-label="Search" id="search-input"/>
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
+    <input class="form-control me-2" type="search" placeholder="Buscar pisos, personajes, objetos..." aria-label="Search" id="search-input"/>
+    <button class="btn btn-outline-success" type="submit">Buscar</button>
+</form>
             </div>
         </div>
     </nav>
@@ -70,23 +70,24 @@
         </div> 
     </div>
 
-    <!-- Modal para resultados de búsqueda -->
-    <div class="modal fade" id="searchResultsModal" tabindex="-1" aria-labelledby="searchResultsModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="searchResultsModalLabel">
-                        <i class="fas fa-search me-2"></i>Búsqueda - The Isaac Wiki
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body" id="search-results">
-                    <p class="text-muted text-center py-4">Ingresa un término en la barra de búsqueda</p>
-                </div>
+<div class="modal fade" id="searchResultsModal" tabindex="-1" aria-labelledby="searchResultsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchResultsModalLabel">Resultados de búsqueda</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="search-results-body">
+                <!-- Los resultados se cargarán aquí dinámicamente -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
-
+</div>
+    <script src="../search-index.js"></script>
+    <script src="../search.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="personaje.js"></script>
 </body>

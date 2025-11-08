@@ -31,7 +31,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button">objetos</a>
+                    <a class="nav-link dropdown-toggle" href="../objetos/objetos.html" role="button">objetos</a>
                     </li>
 
                     <li class="nav-item">
@@ -57,7 +57,7 @@
                     </li>
                 </ul>
 
-                                <form class="d-flex" role="search" id="search-form">
+                    <form class="d-flex" role="search" id="search-form">
     <input class="form-control me-2" type="search" placeholder="Buscar pisos, personajes, objetos..." aria-label="Search" id="search-input"/>
     <button class="btn btn-outline-success" type="submit">Buscar</button>
 </form>
@@ -208,7 +208,24 @@
     </ul>
         </div>  
         </div>
-
+        <div class="modal fade" id="searchResultsModal" tabindex="-1" aria-labelledby="searchResultsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchResultsModalLabel">Resultados de búsqueda</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="search-results-body">
+                <!-- Los resultados se cargarán aquí dinámicamente -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+          <script src="../search-index.js"></script>
+          <script src="../search.js"></script>
         <script src="pisosData.js"></script>
       <script src="pisos.js"></script>
     </body>

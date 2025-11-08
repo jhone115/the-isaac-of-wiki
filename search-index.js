@@ -1,4 +1,4 @@
-// search-index.js - Carga dinámica de datos desde archivos JSON (VERSIÓN MEJORADA)
+// search-index.js - VERSIÓN MEJORADA PARA TODAS LAS PÁGINAS
 class SearchIndex {
     constructor() {
         this.data = {
@@ -12,14 +12,25 @@ class SearchIndex {
     }
 
     detectBasePath() {
-        // Detectar si estamos en GitHub Pages o local
-        const path = window.location.pathname;
-        if (path.includes('/the-isaac-of-wiki/')) {
+        // Detectar la ruta base de forma más robusta
+        const currentPath = window.location.pathname;
+        console.log('Path actual:', currentPath);
+        
+        // Si estamos en GitHub Pages
+        if (currentPath.includes('/the-isaac-of-wiki/')) {
             return '/the-isaac-of-wiki/';
-        } else if (path.includes('/docs/')) {
+        } else if (currentPath.includes('/docs/')) {
             return '/docs/';
         } else {
-            return './';
+            // Para desarrollo local - calcular la ruta base relativa
+            const pathSegments = currentPath.split('/').filter(seg => seg && !seg.includes('.html'));
+            const levelsUp = pathSegments.length;
+            
+            if (levelsUp === 0) {
+                return './'; // Estamos en la raíz
+            } else {
+                return '../'.repeat(levelsUp);
+            }
         }
     }
 
@@ -33,11 +44,6 @@ class SearchIndex {
             ]);
             this.isLoaded = true;
             console.log('✅ Todos los datos de búsqueda cargados correctamente');
-            console.log('Resumen:', {
-                objetos: Object.keys(this.data.objetos).length,
-                personajes: Object.keys(this.data.personajes).length,
-                pisos: Object.keys(this.data.pisos).length
-            });
         } catch (error) {
             console.error('❌ Error cargando datos de búsqueda:', error);
         }
@@ -45,6 +51,7 @@ class SearchIndex {
 
     async loadObjetos() {
         try {
+            // Usar ruta relativa que funcione en cualquier página
             const url = `${this.basePath}objetos/objetosData.json`;
             console.log('Cargando objetos desde:', url);
             
@@ -57,12 +64,6 @@ class SearchIndex {
             for (const [id, nombreKey] of Object.entries(data.nombres)) {
                 const detalle = data.detallesObjetos[nombreKey];
                 if (detalle) {
-                    // Múltiples formatos posibles para las imágenes
-                    const posiblesImagenes = [
-                        `${this.basePath}objetos/objetosimg/collectibles_${id}_${nombreKey}.png`
-                    ];
-
-                    // Usar el formato completo para el ID en la URL
                     const objetoIdCompleto = `collectibles_${id}_${nombreKey}`;
                     
                     this.data.objetos[nombreKey] = {
@@ -71,8 +72,7 @@ class SearchIndex {
                         nombre: detalle.nombre,
                         descripcion: detalle.descripcion,
                         tipo: detalle.tipo || 'Pasivo',
-                        imagen: posiblesImagenes[0],
-                        imagenesAlternativas: posiblesImagenes,
+                        imagen: `${this.basePath}objetos/objetosimg/${objetoIdCompleto}.png`,
                         categoria: 'objeto',
                         ruta: `${this.basePath}objetos/objeto.html?id=${objetoIdCompleto}`
                     };
@@ -98,9 +98,9 @@ class SearchIndex {
             for (const [key, personaje] of Object.entries(data)) {
                 let imagenPrincipal;
                 if (Array.isArray(personaje.imagen)) {
-                    imagenPrincipal = `personajes/${personaje.imagen[0]}`;
+                    imagenPrincipal = `${this.basePath}personajes/${personaje.imagen[0]}`;
                 } else {
-                    imagenPrincipal = `personajes/${personaje.imagen}`;
+                    imagenPrincipal = `${this.basePath}personajes/${personaje.imagen}`;
                 }
 
                 this.data.personajes[key] = {
@@ -127,17 +127,8 @@ class SearchIndex {
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
             
             const data = await response.json();
-            console.log('Estructura del JSON de pisos:', Object.keys(data));
-            
-            // Verificar estructura esperada
-            if (!data.informacionPisos) {
-                console.error('❌ El JSON de pisos no tiene la propiedad "informacionPisos"');
-                console.log('Propiedades disponibles:', Object.keys(data));
-                return;
-            }
             
             // Procesar pisos
-            let pisosCargados = 0;
             for (const [key, piso] of Object.entries(data.informacionPisos)) {
                 const fondo = data.fondosPisos ? data.fondosPisos[key] : null;
                 
@@ -145,18 +136,12 @@ class SearchIndex {
                     id: key,
                     nombre: piso.nombre,
                     descripcion: piso.descripcion,
-                    imagen: fondo ? `the-isaac-of-wiki/pisos/${fondo}` : `the-isaac-of-wiki/pisos/pisosimagenes/basement.jpeg`,
+                    imagen: fondo ? `pisos/${fondo}` : `${this.basePath}pisos/pisosimagenes/basement.jpeg`,
                     categoria: 'piso',
-                    ruta: `${this.basePath}pisos/piso.html?id=${key}`
+                    ruta: `${this.basePath}pisos/piso.html?piso=${key}`
                 };
-                pisosCargados++;
             }
-            
-            console.log(`✅ Pisos cargados: ${pisosCargados}`);
-            if (pisosCargados > 0) {
-                console.log('Ejemplo de piso cargado:', this.data.pisos[Object.keys(this.data.pisos)[0]]);
-            }
-            
+            console.log(`✅ Pisos cargados: ${Object.keys(this.data.pisos).length}`);
         } catch (error) {
             console.error('❌ Error cargando pisos:', error);
         }
@@ -174,11 +159,6 @@ class SearchIndex {
         };
 
         const searchTerm = query.toLowerCase();
-        console.log(`Buscando "${searchTerm}" en:`, {
-            objetos: Object.keys(this.data.objetos).length,
-            personajes: Object.keys(this.data.personajes).length,
-            pisos: Object.keys(this.data.pisos).length
-        });
 
         // Buscar en objetos
         Object.values(this.data.objetos).forEach(objeto => {
@@ -201,12 +181,6 @@ class SearchIndex {
             }
         });
 
-        console.log('Resultados de búsqueda:', {
-            objetos: results.objetos.length,
-            personajes: results.personajes.length,
-            pisos: results.pisos.length
-        });
-
         return results;
     }
 
@@ -220,10 +194,6 @@ class SearchIndex {
         return searchFields.some(field => 
             field.toLowerCase().includes(searchTerm)
         );
-    }
-
-    getItemById(type, id) {
-        return this.data[type]?.[id] || null;
     }
 }
 
