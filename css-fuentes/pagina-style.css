@@ -911,24 +911,65 @@ p, li, td {
 
 /* Optimizar tablas para responsive */
 .table-responsive {
-  overflow-x: auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 10px 0;
+    border: 1px solid #444;
+    border-radius: 8px;
+}
+
+/* Tabla de objetos específica */
+.table-objetos {
+    min-width: 600px; /* Ancho mínimo para mantener legibilidad */
+    width: 100%;
 }
 
 /* Ajustar contenedores flex para móviles */
 @media screen and (max-width: 768px) {
-  .personaje-imagen {
-    flex-wrap: wrap;
-  }
+    /* Mejorar el contenedor de la tabla */
+    .table-responsive {
+        margin: 5px;
+        border-radius: 5px;
+    }
+    
+    /* Ajustar tabla de objetos */
+    .table-objetos {
+        min-width: 500px;
+        font-size: 12px;
+    }
+    
+    .table-objetos th,
+    .table-objetos td {
+        padding: 4px 6px;
+        white-space: nowrap;
+    }
+    
+    .table-objetos img {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    
+    /* Mejorar los enlaces en móviles */
+    .table-objetos a {
+        display: inline-block;
+        min-height: 44px;
+        line-height: 44px;
+    }
 }
 
-/* Mejorar la visualización de la ruleta en móviles */
-@media screen and (max-width: 768px) {
-  .ruleta-container .row {
-    margin: 0 -5px;
-  }
-  
-  .ruleta-container .col-md-4 {
-    padding: 0 5px;
-    margin-bottom: 10px;
-  }
+@media screen and (max-width: 480px) {
+    .table-objetos {
+        min-width: 450px;
+        font-size: 11px;
+    }
+    
+    .table-objetos th,
+    .table-objetos td {
+        padding: 3px 4px;
+    }
+    
+    .table-objetos img {
+        width: 25px !important;
+        height: 25px !important;
+    }
 }
