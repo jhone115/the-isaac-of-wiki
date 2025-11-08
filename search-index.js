@@ -145,7 +145,7 @@ class SearchIndex {
                     id: key,
                     nombre: piso.nombre,
                     descripcion: piso.descripcion,
-                    imagen: fondo ? `${this.basePath}${fondo}` : `${this.basePath}the-isaac-of-wiki/pisos/pisosimagenes/basement.jpeg`,
+                    imagen: fondo ? `the-isaac-of-wiki/pisos/${fondo}` : `the-isaac-of-wiki/pisos/pisosimagenes/basement.jpeg`,
                     categoria: 'piso',
                     ruta: `${this.basePath}pisos/piso.html?id=${key}`
                 };
