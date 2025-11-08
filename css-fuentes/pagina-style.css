@@ -12,7 +12,15 @@
     align-items: center;
     flex-wrap: wrap;
 }
-
+.imagen-edmun {
+    width: 250px;
+    height: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
 #imagen img {
     width: 170px;
     height: auto;
@@ -950,6 +958,14 @@ p, li, td {
 
 /* Ajustar contenedores flex para móviles */
 @media screen and (max-width: 768px) {
+
+    .imagen-edmun {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
     /* Mejorar el contenedor de la tabla */
     .table-responsive {
         margin: 5px;
