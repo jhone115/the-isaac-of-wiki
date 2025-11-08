@@ -61,25 +61,20 @@
     </nav>
     
     <div class="wrapper">
-        <!-- Versión tabla (para escritorio) -->
-        <div class="table-objetos-container">
-            <div class="table-responsive">
-                <table class="table-objetos">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>ID</th>
-                            <th>Icon</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody id="contenedor-detalle"></tbody>
-                </table>
-            </div>
+        <!-- SOLO UNA TABLA - con contenedor responsive -->
+        <div class="table-responsive">
+            <table class="table-objetos">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>ID</th>
+                        <th>Icon</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody id="contenedor-detalle"></tbody>
+            </table>
         </div>
-        
-        <!-- Versión tarjetas (para móviles) -->
-        <div class="objetos-grid" id="contenedor-grid"></div>
     </div>
 
     <!-- Modal de búsqueda -->
