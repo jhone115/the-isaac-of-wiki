@@ -98,9 +98,9 @@ class SearchIndex {
             for (const [key, personaje] of Object.entries(data)) {
                 let imagenPrincipal;
                 if (Array.isArray(personaje.imagen)) {
-                    imagenPrincipal = `${this.basePath}${personaje.imagen[0]}`;
+                    imagenPrincipal = `personajes/${personaje.imagen[0]}`;
                 } else {
-                    imagenPrincipal = `${this.basePath}${personaje.imagen}`;
+                    imagenPrincipal = `personajes/${personaje.imagen}`;
                 }
 
                 this.data.personajes[key] = {
@@ -145,7 +145,7 @@ class SearchIndex {
                     id: key,
                     nombre: piso.nombre,
                     descripcion: piso.descripcion,
-                    imagen: fondo ? `${this.basePath}${fondo}` : `${this.basePath}pisos/pisosimagenes/basement.jpeg`,
+                    imagen: fondo ? `${this.basePath}${fondo}` : `${this.basePath}the-isaac-of-wiki/pisos/pisosimagenes/basement.jpeg`,
                     categoria: 'piso',
                     ruta: `${this.basePath}pisos/piso.html?id=${key}`
                 };
