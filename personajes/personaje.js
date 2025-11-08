@@ -130,6 +130,7 @@ function mostrarPersonaje(p) {
     }
     
     document.getElementById("descripcioncorta").innerHTML = `
+    <div class="table-responsive">
         <table>
             <tr><td colspan="2">${p.descripcioncorta}</td></tr>
             <tr><td colspan="2">stats</td></tr>
@@ -155,7 +156,8 @@ function mostrarPersonaje(p) {
                 <td> ${objetos}</td>
                 <td><img src="../objetos/objetosimg/${p.objetos}.png" width="20"></td>
             </tr>
-        </table>`;
+        </table>
+        <div/>`;
     
     document.getElementById("descripcionlarga").innerHTML = p.descripcionlarga;
     document.title = `${p.nombre} | The Isaac Wiki`;
