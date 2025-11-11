@@ -769,7 +769,7 @@
       "tipo": "Pasivo",
       "efecto": "Aumenta el rango y la velocidad de disparo. Las lágrimas obtienen un efecto de bumerán. Las lágrimas a medio camino del todo el rango regresarán hacia el jugador, orbitando alrededor de él hasta caer.",
       "stats": [
-        { "tipo": "rango", "cambio": "+1.5" },{"tipo": "vel lagrima", "cambio": "x1.6"}
+        { "tipo": "rango", "cambio": "+1.5" },{"tipo": "vellagrima", "cambio": "x1.6"}
       ],
       "pools": ["Treasure Room", "Crane game"],
       "unlock": "Disponible desde el inicio"
@@ -856,7 +856,7 @@
       "tipo": "Pasivo",
       "efecto": "Aumenta la velocidad y daño por contacto, Roid Rage forma parte de los objetos que sirven para la transformación Spun.",
       "stats": [
-        {"tipo": "velocidad", "cambio": "+0.6"}, {"tipo": "rango", "cambio": "+5.25"}, {"tipo": "vel lagrima", "cambio": "+0.5"}
+        {"tipo": "velocidad", "cambio": "+0.6"}, {"tipo": "rango", "cambio": "+5.25"}, {"tipo": "vellagrima", "cambio": "+0.5"}
       ],
       "pools": ["Treasure Room", "Boss Room", "Crane game"],
       "unlock": "Disponible desde el inicio"

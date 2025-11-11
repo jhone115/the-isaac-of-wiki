@@ -3,7 +3,7 @@ const contenedor = document.getElementById("contenedor-detalle");
 
 const iconosStats = {
     "lagrimas": "../personajes/statsimg/lagrimas.png",
-    "vel lagrimas": "../personajes/statsimg/vel lagrima.png",
+    "vellagrimas": "../personajes/statsimg/vel lagrima.png",
     "damage": "../personajes/statsimg/daño.png",
     "velocidad": "../personajes/statsimg/velocidad.png",
     "rango": "../personajes/statsimg/rango.png",
