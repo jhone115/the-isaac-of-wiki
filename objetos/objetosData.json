@@ -740,15 +740,174 @@
       "nombre": "The Inner Eye",
       "descripcion": "Lágrimas triples, pero más lentas.",
       "tipo": "Pasivo",
-      "efecto": "Triple shot",
+      "efecto": "Le da a Isaac un tercer ojo, posicionado en su frente, de forma que puede realizar un disparo triple, reduciendo a su vez las lágrimas a su capacidad mínima, pero aún así, pueden ser aumentadas con items y píldoras de más lagrimas (Tears Up). El Ojo Interno efectivamente triplica el daño, por lo que un jugador con un daño bajo, puede lograr un buen daño dependiendo de cuántas lagrimas golpeen al objetivo.",
+      "pools": ["Treasure Room"],
       "unlock": "Disponible desde el inicio"
     },
     "spoonbender": {
       "nombre": "Spoon Bender",
-      "descripcion": "Lágrimas teledirigidas.",
+      "descripcion": "lagrimas teledirigidas",
       "tipo": "Pasivo",
-      "efecto": "Homing tears",
+      "efecto": "Otorga lagrimas telepáticas (autodirigidas a los enemigos).",
+      "pools": ["Treasure Room", "Crane game"],
       "unlock": "Disponible desde el inicio"
+    },
+    "cricketshead": {
+      "nombre": "Cricket's Head",
+      "descripcion": "multipllicador de daño",
+      "tipo": "Pasivo",
+      "efecto": "Da + 0.5 Daño y un multiplicador de × 1.5 Daño. Apareció originalmente como Max's Head (La Cabeza de Max en español) en el juego original. Incrementa el tamaño de las lágrimas y provoca que las lágrimas tengan más empuje contra enemigos. Las estadísticas de daño aumentan un 0.5 y el total es multiplicado por 1.5.",
+      "stats": [
+        { "tipo": "daño", "cambio": "+0.5" },{"tipo": "daño", "cambio": "x1.5"}
+      ],
+      "pools": ["Treasure Room", "Crane game"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "myreflection": {
+      "nombre": "My Reflection",
+      "descripcion": "Lágrimas que regresan como boomerang",
+      "tipo": "Pasivo",
+      "efecto": "Aumenta el rango y la velocidad de disparo. Las lágrimas obtienen un efecto de bumerán. Las lágrimas a medio camino del todo el rango regresarán hacia el jugador, orbitando alrededor de él hasta caer.",
+      "stats": [
+        { "tipo": "rango", "cambio": "+1.5" },{"tipo": "vel lagrima", "cambio": "x1.6"}
+      ],
+      "pools": ["Treasure Room", "Crane game"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "numberone": {
+      "nombre": "Number One",
+      "descripcion": "Aumento de lágrimas con reducción de rango",
+      "tipo": "Pasivo",
+      "efecto": "Aumenta la velocidad de lágrimas pero reduce el rango, Las lágrimas se vuelven amarillas y se disparan desde la parte inferior en lugar de su cabeza.",
+      "stats": [
+        { "tipo": "lagrimas", "cambio": "+1.5" },{ "tipo": "rango", "cambio": "-15.77" }
+      ],
+      "pools": ["Treasure Room"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "bloodofthemartyr": {
+      "nombre": "Blood of the Martyr",
+      "descripcion": "Aumento de daño",
+      "tipo": "Pasivo",
+      "efecto": "Aumenta el daño en +1.0 y le da a Isaac lágrimas de sangre incluso si es menor a 5.",
+      "stats": [
+        { "tipo": "daño", "cambio": "+1.0" }
+      ],
+      "pools": ["Angel Room", "Secret Room", "Treasure Room"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "brotherbobby": {
+      "nombre": "Brother Bobby",
+      "descripcion": "Familiar que dispara lágrimas",
+      "tipo": "Familiar",
+      "efecto": "Él es un bebé azul con ojos en forma de X. Sigue al jugador en fila, junta al resto de familiares. Dispara lágrimas sin ningún efecto que causan 3.50 de daño. Este familiar sirve la la transformación conjoined",
+      "pools": ["Treasure Room", "Shop", "Devil Room"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "skatole": {
+      "nombre": "Skatole",
+      "descripcion": "Las moscas se vuelven amigables",
+      "tipo": "Pasivo",
+      "efecto": "Algunos tipos de mosca serán inofensivas o aliadas.",
+      "pools": ["Shop", "Crane game"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "haloofflies": {
+      "nombre": "Halo of Flies",
+      "descripcion": "Barrera orbital de moscas",
+      "tipo": "Pasivo",
+      "efecto": "Dos moscas orbitan alrededor de Isaac bloqueando proyectiles enemigos",
+      "pools": ["Treasure Room","Shop","Crane game"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "1up": {
+      "nombre": "1UP!",
+      "descripcion": "Vida extra",
+      "tipo": "Pasivo",
+      "efecto": "Da una vida extra. Al morir, Isaac reaparece en la habitación anterior con vida completa y pierde 1up!",
+      "pools": ["Shop", "Secret Room"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "magicmushroom": {
+      "nombre": "Magic Mushroom",
+      "descripcion": "Mejora múltiple de estadísticas",
+      "tipo": "Pasivo",
+      "efecto": "El tamaño de Isaac aumenta, al igual que el de sus lágrimas, aumenta el rango, la cadencia de disparo, el daño y la velocidad, también aumenta la vida en un corazón y al recogerla se regenera un corazón.",
+      "stats": [
+        {"tipo": "daño", "cambio": "+0.3"},
+        {"tipo": "daño", "cambio": "x1.5"},
+        {"tipo": "rango", "cambio": "+5.25"},
+        {"tipo": "velocidad", "cambio": "+0.3"}
+      ],
+      "pools": ["Treasure Room", "Boss Room"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "thevirus": {
+      "nombre": "The Virus",
+      "descripcion": "Daño por contacto y envenenamiento",
+      "tipo": "Pasivo",
+      "efecto": "Inflige veneno a los enemigos que entran en contacto con Isaac. El veneno golpea aleatoriamente 2 o 3 veces, causando un total de 4 o 6 de daño. En Afterbirth cada golpe de veneno causa daño igual al daño de la lágrima de Isaac. En Afterbirth los enemigos son asesinados después de que han sido infligidos con este tipo de veneno tienen un 20% de probabilidad de soltar Corazones Negros. En Afterbirth este elemento pertenece a la transformación 'Spun'.",
+      "pools": ["Treasure Room","Crane game"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "roidrage": {
+      "nombre": "Roid Rage",
+      "descripcion": "Aumento de velocidad y daño cuerpo a cuerpo",
+      "tipo": "Pasivo",
+      "efecto": "Aumenta la velocidad y daño por contacto, Roid Rage forma parte de los objetos que sirven para la transformación Spun.",
+      "stats": [
+        {"tipo": "velocidad", "cambio": "+0.6"}, {"tipo": "rango", "cambio": "+5.25"}, {"tipo": "vel lagrima", "cambio": "+0.5"}
+      ],
+      "pools": ["Treasure Room", "Boss Room", "Crane game"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "heart": {
+      "nombre": "<3",
+      "descripcion": "Aumento de vida",
+      "tipo": "Pasivo",
+      "efecto": "Añade un contenedor de corazones lleno. Cura todos los corazones vacíos.",
+      "pools": ["Treasure Room","Boss Room"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "rawliver": {
+      "nombre": "Raw Liver",
+      "descripcion": "Gran aumento de vida",
+      "tipo": "Pasivo",
+      "efecto": "Le da a Isaac dos contenedores de corazón rojo y restaura completamente la salud de Isaac.",
+      "pools": ["Secret Room", "Boss Room"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "skeletonkey": {
+      "nombre": "Skeleton Key",
+      "descripcion": "Llaves infinitas",
+      "tipo": "Pasivo",
+      "efecto": "Otorga 99 llaves",
+      "pools": ["Secret Room", "Treasure Room"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "adollar": {
+      "nombre": "A Dollar",
+      "descripcion": "Dinero infinito",
+      "tipo": "Pasivo",
+      "efecto": "Otorga 99 monedas",
+      "pools": ["Crane game", "Secret Room"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "boom": {
+      "nombre": "Boom!",
+      "descripcion": "Bomba gigante",
+      "tipo": "Pasivo",
+      "efecto": "Da 10 bombas.",
+      "pools": ["Treasure Room", "Shop"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "transcendence": {
+      "nombre": "Transcendence",
+      "descripcion": "Vuelo",
+      "tipo": "Pasivo",
+      "efecto": "Permite volar sobre obstáculos, fosas y púas.",
+      "pools": [ "Secret Room"],
+      "unlock": "derrotar 3 veces al corazon de mamá"
     }
   }
 }
