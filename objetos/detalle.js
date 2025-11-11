@@ -19,7 +19,8 @@ const iconosPools = {
     "Secret Room": "../objetos/pools/secret pool.png",
     "Devil Room": "../objetos/pools/devil pool.png",
     "Angel Room": "../objetos/pools/angel pool.png",
-    "Crane game": "../objetos/pools/crane game pool.png"
+    "Crane game": "../objetos/pools/crane game pool.png",
+    "Library": "../objetos/pools/Library pool.png"
 };
 
 function renderDetalleObjeto(detalle, id) {

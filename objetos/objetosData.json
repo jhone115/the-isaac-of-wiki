@@ -908,6 +908,276 @@
       "efecto": "Permite volar sobre obstáculos, fosas y púas.",
       "pools": [ "Secret Room"],
       "unlock": "derrotar 3 veces al corazon de mamá"
+    },
+    "thecompass": {
+      "nombre": "The Compass",
+      "descripcion": "Revela todos los iconos del mapa",
+      "tipo": "Pasivo",
+      "efecto": "Muestra la ubicación de todas las salas especiales",
+      "pools": ["Crane game", "Shop"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "lunch": {
+      "nombre": "Lunch",
+      "descripcion": "Aumento de vida",
+      "tipo": "Pasivo",
+      "efecto": "Da un contenedor de vida roja lleno. Cura 1 corazón rojo adicional.",
+      "pools": ["Boss Room", "Crane game"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "dinner": {
+      "nombre": "Dinner",
+      "descripcion": "Aumento de vida",
+      "tipo": "Pasivo",
+      "efecto": "Da un contenedor de vida roja lleno. Cura 1 corazón rojo adicional.",
+      "pools": ["Boss Room", "Crane game"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "dessert": {
+      "nombre": "Dessert",
+      "descripcion": "Aumento de vida",
+      "tipo": "Pasivo",
+      "efecto": "Da un contenedor de vida roja lleno. Cura 1 corazón rojo adicional.",
+      "pools": ["Boss Room", "Crane game"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "breakfast": {
+      "nombre": "Breakfast",
+      "descripcion": "Aumento de vida",
+      "tipo": "Pasivo",
+      "efecto": "Da un contenedor de vida roja lleno. Cura 1 corazón rojo adicional.(cuando ya no quedan mas objetos en la pool solo puede aparecer este)",
+      "pools": ["Boss Room", "Crane game"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "rottenmeat": {
+      "nombre": "Rotten Meat",
+      "descripcion": "Aumento de vida",
+      "tipo": "Pasivo",
+      "efecto": "Da un contenedor de vida roja lleno. Cura 1 corazón rojo adicional.",
+      "pools": ["Boss Room", "Crane game"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "woodenspoon": {
+      "nombre": "Wooden Spoon",
+      "descripcion": "Aumento de velocidad",
+      "tipo": "Pasivo",
+      "efecto": "Una cuchara de madera plana. Incrementa la velocidad en 0.3",
+      "stats": [
+        {"tipo": "velocidad", "cambio": "+0.3"}
+      ],
+      "pools": ["Boss Room"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "thebelt": {
+      "nombre": "The Belt",
+      "descripcion": "Aumento de velocidad",
+      "tipo": "Pasivo",
+      "efecto": "Una cinturón de cuero. Aumenta la velocidad en 0.3.",
+      "stats": [
+        {"tipo": "velocidad", "cambio": "+0.3"}
+      ],
+      "pools": ["Boss Room"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "momsunderwear": {
+      "nombre": "Mom's Underwear",
+      "descripcion": "Aumento de rango",
+      "tipo": "Pasivo",
+      "efecto": "+5.25 de rango. Mom's Underwear forma parte de los objetos que sirve para la transformación Yes Mother?. Hace aparecer 4 moscas azules.",
+      "stats": [
+        {"tipo": "rango", "cambio": "+5.25"}
+      ],
+      "pools": ["Boss Room"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "momsheels": {
+      "nombre": "Mom's Heels",
+      "descripcion": "Aumento de rango",
+      "tipo": "Pasivo",
+      "efecto": "+5.25 De rango. +0.5 Altura de disparo. Este objeto pertenece a un grupo de items que sirven para transformarse en Yes Mother?. Da a Isaac un daño por contacto de 12 puntos por tick",
+      "stats": [
+        {"tipo": "rango", "cambio": "+5.25"}
+      ],
+      "pools": ["Boss Room"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "momslipstick": {
+      "nombre": "Mom's Lipstick",
+      "descripcion": "Aumento de rango",
+      "tipo": "Pasivo",
+      "efecto": "+5.25 De rango. +0.5 Altura de disparo. Este objeto pertenece a un grupo de items que sirven para transformarse en 'Yes Mother'.",
+      "stats": [
+        {"tipo": "rango", "cambio": "+5.25"}
+      ],
+      "pools": ["Boss Room"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "wirecoathanger": {
+      "nombre": "Wire Coat Hanger",
+      "descripcion": "Aumento de velocidad de lágrimas",
+      "tipo": "Pasivo",
+      "efecto": "Aumenta la velocidad de disparo",
+      "stats": [
+        {"tipo": "lagrimas", "cambio": "+0.7"}
+      ],
+      "pools": ["Boss Room", "Crane game"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "thebible": {
+      "nombre": "The Bible",
+      "descripcion": "Vuelo temporal y muerte instantánea a Mom y Mom's Heart",
+      "tipo": "Activo",
+      "efecto": "Otorga vuelo durante la habitación actual. Mata instantáneamente a Mom y Mom's Heart",
+      "pools": ["Library", "Angel Room", "Shop"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "thebookofbelial": {
+      "nombre": "The Book of Belial",
+      "descripcion": "Aumento de daño temporal",
+      "tipo": "Activo",
+      "efecto": "Aumenta el daño por +2 durante la habitación actual",
+      "stats": [
+        {"tipo": "daño", "cambio": "+2.0"}
+      ],
+      "pools": ["Library", "Devil Room", "Treasure Room"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "thenecronomicon": {
+      "nombre": "The Necronomicon",
+      "descripcion": "Daño en área al usar",
+      "tipo": "Activo",
+      "efecto": "Inflige 40 puntos de daño a todos los enemigos en la habitación",
+      "pools": ["Library", "Devil Room", "Treasure Room", "Secret Room"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "thepoop": {
+      "nombre": "The Poop",
+      "descripcion": "Crea una caca usable",
+      "tipo": "Activo",
+      "efecto": "Hace aparecer una caca en el lugar donde Isaac se encuentre y empuja a los enemigos cercanos. Puede generar recursos como las cacas normales. ??? puede iniciar con este objeto.",
+      "pools": ["Treasure Room", "Shop"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "mrboom": {
+      "nombre": "Mr. Boom",
+      "descripcion": "Bomba gigante",
+      "tipo": "Activo",
+      "efecto": "Coloca una bomba con efecto de  Sr. Mega que causa 110 de daño.",
+      "pools": ["Treasure Room", "Crane game"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "tammyshead": {
+      "nombre": "Tammy's Head",
+      "descripcion": "Disparo circular de lágrimas",
+      "tipo": "Activo",
+      "efecto": "Dispara 10 lágrimas en todas las direcciones alrededor de Isaac",
+      "pools": ["Treasure Room"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "momsbra": {
+      "nombre": "Mom's Bra",
+      "descripcion": "Congela a todos los enemigos",
+      "tipo": "Activo",
+      "efecto": "Petrifica a todos los monstruos en la habitación por aproximadamente cuatro segundos. Mom's Bra puede ser usado para poder adquirir la transformación Yes Mother?.",
+      "pools": ["Treasure Room"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "kamikaze": {
+      "nombre": "Kamikaze!",
+      "descripcion": "Explosión alrededor de Isaac",
+      "tipo": "Activo",
+      "efecto": "Al activarlo, causa una explosión en el lugar de Isaac, dañándolo a él a cambio de medio corazón[verificar] e infligiendo 40 de daño a todos los enemigos atrapados en la explosión.",
+      "pools": ["Treasure Room"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "momspad": {
+      "nombre": "Mom's Pad",
+      "descripcion": "Aplica efecto de sangrado a enemigos",
+      "tipo": "Activo",
+      "efecto": "Al usarlo, inflige miedo a todos los enemigos en la habitación durante 5 segundos. Este objeto forma parte del grupo de objetos para transformarte en Yes Mother?.",
+      "pools": ["Treasure Room"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "bobsrottenhead": {
+      "nombre": "Bob's Rotten Head",
+      "descripcion": "Cabeza explosiva lanzable",
+      "tipo": "Activo",
+      "efecto": "Al activarlo, el jugador sostiene en alto la cabeza. Mientras esté arriba, el jugador puede lanzarla al igual que como dispara lágrimas.",
+      "pools": ["Treasure Room", "Crane game"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "teleport": {
+      "nombre": "Teleport",
+      "descripcion": "Teletransporta a una sala aleatoria",
+      "tipo": "Activo",
+      "efecto": "Al activarse, teletransporta al jugador a una habitación aleatoria. Deja al jugador en uno de los cuatros posibles en donde está la puerta o donde puede estar. Con mucha suerte, puede teletransportar al jugador incluso a la habitación secreta, súper secreta y I AM ERROR.",
+      "pools": ["Treasure Room", "Shop"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "yumheart": {
+      "nombre": "Yum Heart",
+      "descripcion": "Cura un corazón",
+      "tipo": "Activo",
+      "efecto": "Cura un corazón rojo. Ya sea de un contenedor de corazón vacío o un corazón hueso. Este objeto es inútil si no se tiene contenedores de corazón rojo o corazones hueso. Este problema va principalmente para ???, The Lost y The Forgotten. Si se activa como The Soul sigue curando a The Forgotten.o",
+      "pools": ["Treasure Room"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "luckyfoot": {
+      "nombre": "Lucky Foot",
+      "descripcion": "Aumenta la suerte",
+      "tipo": "Pasivo",
+      "efecto": "Aumenta la suerte en +1. Mejora las probabilidades en las máquinas de juego",
+      "stats": [
+        {"tipo": "suerte", "cambio": "+1"}
+      ],
+      "pools": ["Treasure Room", "Shop"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "doctorsremote": {
+      "nombre": "Doctor's Remote",
+      "descripcion": "Rayo televisivo",
+      "tipo": "Activo",
+      "efecto": "Al activarlo, una objetivo rojo aparecerá en el suelo. El jugador puede controlar el objetivo usando la forma de disparar lágrimas.Activarlo de nuevo hace que el misil sea disparado, de lo contrario se disparará después de 6 segundos de forma automática.[verificar]El misil aterriza después de 2 segundos, actuando como una gran explosión de bomba que inflige 20 veces el daño de Isaac (igual que  Fetus Épico).",
+      "pools": ["Treasure Room", "Crane game"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "cupidsarrow": {
+      "nombre": "Cupid's Arrow",
+      "descripcion": "Lágrimas penetrantes",
+      "tipo": "Pasivo",
+      "efecto": "Las lágrimas ahora atraviesan a los enemigos y no desaparecen al impactar sobre ellos. Esto permite dañar a los monstruos que son protegidos por otros si están en medio.",
+      "pools": ["Treasure Room"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "shoopdawhoop": {
+      "nombre": "Shoop Da Whoop!",
+      "descripcion": "Rayo láser",
+      "tipo": "Activo",
+      "efecto": "Lanza un rayo parecido al de Brimstone solo que en color blanco hacia la dirección donde esté mirando Isaac, dicho láser hará el doble del daño de las lagrimas de Isaac.",
+      "pools": ["Treasure Room", "Crane game"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "steven": {
+      "nombre": "Steven",
+      "descripcion": "Aumento de daño",
+      "tipo": "Pasivo",
+      "efecto": "Aumenta el daño en +1",
+      "stats": [
+        {"tipo": "daño", "cambio": "+1"}
+      ],
+      "pools": ["Treasure Room", "Boss Room"],
+      "unlock": "Disponible desde el inicio"
+    },
+    "pentagram": {
+      "nombre": "Pentagram",
+      "descripcion": "Aumento de daño",
+      "tipo": "Pasivo",
+      "efecto": "Aumenta el daño en +1 y tiene posibilidad de dar daño extra Aumenta la probabilidad de la habitación del pacto un 10%.",
+      "stats": [
+        {"tipo": "daño", "cambio": "+1"}
+      ],
+      "pools": ["Treasure Room", "Devil Room"],
+      "unlock": "Disponible desde el inicio"
     }
   }
 }
