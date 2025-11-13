@@ -12,9 +12,19 @@
     </head>
     
     <body>
-        <a href="index.html">
-        <img src="isaac-specialist-logo (1).gif" alt="logo" class="logo">
-        </a>
+    <!-- Botones de autenticación en esquina superior derecha -->
+    <div class="auth-container">
+        <button class="btn btn-auth" id="btn-login">Iniciar Sesión</button>
+        <button class="btn btn-auth" id="btn-register">Registrarse</button>
+        <div class="user-info" id="user-info" style="display: none;">
+            <span id="username-display"></span>
+            <button class="btn btn-auth" id="btn-logout">Cerrar Sesión</button>
+        </div>
+    </div>
+
+    <a href="index.html">
+    <img src="isaac-specialist-logo (1).gif" alt="logo" class="logo">
+    </a>
 
         <nav class="navbar navbar-expand-lg mynav">
             <div class="container-fluid">
@@ -142,6 +152,257 @@
         </div>
     </div>
 </div>
+<!-- Modal de Inicio de Sesión Mejorado -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content auth-modal">
+            <div class="modal-header auth-modal-header">
+                <div class="auth-modal-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                        <polyline points="10 17 15 12 10 7"></polyline>
+                        <line x1="15" y1="12" x2="3" y2="12"></line>
+                    </svg>
+                </div>
+                <h5 class="modal-title auth-modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body auth-modal-body">
+                <form id="login-form" class="auth-form">
+                    <div class="form-group auth-form-group">
+                        <label for="login-username" class="auth-form-label">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            Usuario
+                        </label>
+                        <input type="text" class="form-control auth-form-control" id="login-username" 
+                               placeholder="Ingresa tu usuario" required>
+                        <div class="auth-form-feedback"></div>
+                    </div>
+                    
+                    <div class="form-group auth-form-group">
+                        <label for="login-password" class="auth-form-label">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            Contraseña
+                        </label>
+                        <div class="password-input-container">
+                            <input type="password" class="form-control auth-form-control" id="login-password" 
+                                   placeholder="Ingresa tu contraseña" required>
+                            <button type="button" class="password-toggle" id="login-password-toggle">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="auth-form-feedback"></div>
+                    </div>
+
+                    <div class="auth-form-options">
+                        <div class="form-check remember-me">
+                            <input type="checkbox" class="form-check-input" id="remember-me">
+                            <label class="form-check-label" for="remember-me">Recordar sesión</label>
+                        </div>
+                        <a href="#" class="forgot-password" id="forgot-password-link">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    
+                    <div class="d-grid gap-2 auth-form-actions">
+                        <button type="submit" class="btn btn-primary auth-submit-btn" id="login-submit-btn">
+                            <span class="btn-text">Iniciar Sesión</span>
+                            <span class="btn-loading" style="display: none;">
+                                <span class="spinner-border spinner-border-sm" role="status"></span>
+                                Iniciando...
+                            </span>
+                        </button>
+                    </div>
+
+                    <div class="auth-divider">
+                        <span>o</span>
+                    </div>
+
+                    <div class="auth-alt-actions">
+                        <p class="auth-alt-text">
+                            ¿No tienes cuenta? 
+                            <a href="#" class="auth-alt-link" id="switch-to-register">Regístrate aquí</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer auth-modal-footer">
+                <div class="auth-security-notice">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    Tus datos están protegidos
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Modal de Registro Mejorado -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content auth-modal">
+            <div class="modal-header auth-modal-header">
+                <div class="auth-modal-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="8.5" cy="7" r="4"></circle>
+                        <line x1="20" y1="8" x2="20" y2="14"></line>
+                        <line x1="23" y1="11" x2="17" y2="11"></line>
+                    </svg>
+                </div>
+                <h5 class="modal-title auth-modal-title" id="registerModalLabel">Crear Cuenta</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body auth-modal-body">
+                <form id="register-form" class="auth-form">
+                    <div class="form-group auth-form-group">
+                        <label for="register-username" class="auth-form-label">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            Usuario
+                        </label>
+                        <input type="text" class="form-control auth-form-control" id="register-username" 
+                               placeholder="Elige un nombre de usuario" required>
+                        <div class="auth-form-feedback" id="username-feedback"></div>
+                        <div class="form-text auth-form-text">
+                            Mínimo 3 caracteres, solo letras y números
+                        </div>
+                    </div>
+                    
+                    <div class="form-group auth-form-group">
+                        <label for="register-email" class="auth-form-label">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            Email
+                        </label>
+                        <input type="email" class="form-control auth-form-control" id="register-email" 
+                               placeholder="tu@email.com" required>
+                        <div class="auth-form-feedback" id="email-feedback"></div>
+                    </div>
+
+                    <div class="form-group auth-form-group">
+                        <label for="register-password" class="auth-form-label">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            Contraseña
+                        </label>
+                        <div class="password-input-container">
+                            <input type="password" class="form-control auth-form-control" id="register-password" 
+                                   placeholder="Crea una contraseña segura" required>
+                            <button type="button" class="password-toggle" id="register-password-toggle">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="auth-form-feedback" id="password-feedback"></div>
+                        <div id="password-strength-container" style="display: none;">
+                            <div class="password-strength">
+                                <div class="strength-bar">
+                                    <div class="strength-fill" id="strength-fill"></div>
+                                </div>
+                                <small class="strength-text" id="strength-text">Fortaleza: Muy débil</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group auth-form-group">
+                        <label for="register-confirm-password" class="auth-form-label">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            Confirmar Contraseña
+                        </label>
+                        <div class="password-input-container">
+                            <input type="password" class="form-control auth-form-control" id="register-confirm-password" 
+                                   placeholder="Repite tu contraseña" required>
+                            <button type="button" class="password-toggle" id="register-confirm-password-toggle">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="auth-form-feedback" id="confirm-password-feedback"></div>
+                    </div>
+
+                    <div class="admin-check-container">
+                        <div class="form-check admin-check">
+                            <input type="checkbox" class="form-check-input" id="admin-check">
+                            <label class="form-check-label" for="admin-check">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                                Solicitar permisos de administrador
+                            </label>
+                        </div>
+                        <div class="admin-check-info">
+                            <small class="text-warning">
+                                ⚠️ Solo usuarios pre-autorizados pueden obtener permisos de administrador
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="auth-terms">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="accept-terms" required>
+                            <label class="form-check-label" for="accept-terms">
+                                Acepto los <a href="#" class="terms-link">términos de servicio</a> y 
+                                <a href="#" class="terms-link">política de privacidad</a>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2 auth-form-actions">
+                        <button type="submit" class="btn btn-primary auth-submit-btn" id="register-submit-btn">
+                            <span class="btn-text">Crear Cuenta</span>
+                            <span class="btn-loading" style="display: none;">
+                                <span class="spinner-border spinner-border-sm" role="status"></span>
+                                Creando cuenta...
+                            </span>
+                        </button>
+                    </div>
+
+                    <div class="auth-divider">
+                        <span>o</span>
+                    </div>
+
+                    <div class="auth-alt-actions">
+                        <p class="auth-alt-text">
+                            ¿Ya tienes cuenta? 
+                            <a href="#" class="auth-alt-link" id="switch-to-login">Inicia sesión aquí</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer auth-modal-footer">
+                <div class="auth-security-notice">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    Tus datos están protegidos y encriptados
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="auth-secure.js"></script>
+        <script src="auth.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
         <script src="ruleta.js"></script>
         <script src="search-index.js"></script>
